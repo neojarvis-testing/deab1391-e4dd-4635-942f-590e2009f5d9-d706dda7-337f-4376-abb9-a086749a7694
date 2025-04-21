@@ -3,6 +3,8 @@ package utils;
 import java.time.Duration;
 import java.util.List;
 import java.util.Set;
+
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -73,6 +75,11 @@ public class WebDriverHelper {
 
     public List<WebElement> getElementsByXPath(String str) {
         return driver.findElements(By.xpath(str));
+    }
+
+    public void alertDismiss(){
+        Alert alert=driver.switchTo().alert();
+        alert.dismiss();
     }
 
     public void iterate(String str, String str1) {
