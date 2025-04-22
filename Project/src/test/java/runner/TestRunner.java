@@ -1,7 +1,4 @@
 package runner;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -10,18 +7,18 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
 
+import pages.AboutusActionsVenkat;
 import pages.HomePageActionsVenkat;
 import utils.Base;
-import utils.LoggerHandler;
 import utils.Reporter;
-import utils.Screenshot;
+
 
 public class TestRunner extends Base { 
     ExtentReports report;
     ExtentTest test;
     HomePageActionsVenkat ha;
+    AboutusActionsVenkat va;
 
 
     @BeforeClass
@@ -35,11 +32,19 @@ public class TestRunner extends Base {
     } 
 
     @Test
-    public void test3()throws InterruptedException{ 
+    public void testcase3(){ 
         test=report.createTest("testcase3");
         ha=new HomePageActionsVenkat(test);
         ha.testAll();
     } 
+
+    @Test
+    public void testcase8(){
+        test=report.createTest("testcase8");
+        va=new AboutusActionsVenkat(test);
+        va.testAll();
+
+    }
 
     @AfterMethod
     public void tear(){

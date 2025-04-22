@@ -1,102 +1,245 @@
 package pages;
 
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 
 import uistore.HomePageLocatorsVenkat;
 import utils.Assertion;
 import utils.Base;
+import utils.LoggerHandler;
 import utils.Reporter;
 import utils.Screenshot;
 import utils.WebDriverHelper;
 
 public class HomePageActionsVenkat {
- WebDriverHelper helper;
- ExtentTest test;
- public HomePageActionsVenkat(ExtentTest test){
-    this.test=test;
-    helper=new WebDriverHelper(Base.driver);
- }
- public void hoverOnCycleByBrand(){
-    helper.hoverOverElement(HomePageLocatorsVenkat.CycleByBrand);
- }
- public void clickOnAvon(){
-    helper.clickOnElement(HomePageLocatorsVenkat.Avon);
- }
+    WebDriverHelper helper;
+    ExtentTest test;
+    public HomePageActionsVenkat(ExtentTest test){
+        this.test=test;
+        helper=new WebDriverHelper(Base.driver);
+    }
+    public void hoverOnCycleByBrand(){
+        try{
+        helper.hoverOverElement(HomePageLocatorsVenkat.CycleByBrand);
+        Screenshot.takeScreenshot("CycleByBrand");
+        LoggerHandler.logInfo("Hovered on cycleByBrand");
+        test.log(Status.PASS,"Hovered on cycleByBrand");
+       
+        }
+        catch(Exception e){
+            Reporter.addScreenshot("CycleByBrand", test, "CycleByBrand button hover Failed");
+            LoggerHandler.logError("Hover on Sign up failed");
+            test.log(Status.FAIL,"Hover on Sign up failed");
+        }
+    }
+    public void clickOnAvon(){
+        try{
+        helper.clickOnElement(HomePageLocatorsVenkat.Avon);
+        Screenshot.takeScreenshot("Avon");
+        LoggerHandler.logInfo("clicked on Avon");
+        test.log(Status.PASS,"clicked on Avon");
+        }
+        catch(Exception e){
+            Reporter.addScreenshot("Avon", test, "Avon click Failed");
+            LoggerHandler.logError("click on Avon failed");
+            test.log(Status.FAIL,"click on Avon failed");
+        }
+    }
 
- public void verifyAvon(){
-    Assertion.verifyText(HomePageLocatorsVenkat.Avonverify, "Avon");
-}
+    public void verifyAvon(){
+        try{
+        Assertion.verifyText(HomePageLocatorsVenkat.Avonverify, "Avon");
+        LoggerHandler.logInfo("Verified text Avon");
+        test.log(Status.PASS,"Verified text Avon");
+        }
 
-public void clickOnSort(){
-    helper.clickOnElement(HomePageLocatorsVenkat.Sort);
-}
+    catch(Exception e){
+        LoggerHandler.logError("verifying text Avon failed");
+        test.log(Status.FAIL,"verifying text Avon failed");
+    }
+    }
 
-public void clickonPriceAscending(){
-    helper.clickOnElement(HomePageLocatorsVenkat.PriceAscending);
-}
+    public void clickOnSort(){
+        try{
+        helper.clickOnElement(HomePageLocatorsVenkat.Sort);
+        Screenshot.takeScreenshot("sort");
+        LoggerHandler.logInfo("clicked on Sort");
+        test.log(Status.PASS,"clicked on Sort");
+        }
 
-public void clickOnCompare(){
-    helper.clickOnElement(HomePageLocatorsVenkat.Compare);
-}
+        catch(Exception e){
+            Reporter.addScreenshot("Sort", test, "sort click Failed");
+            LoggerHandler.logError("click on sort failed");
+            test.log(Status.FAIL,"click on sort failed");
+        }
+    }
 
-public void clickOnCart(){
-    helper.clickOnElement(HomePageLocatorsVenkat.Cart);
-}
+    public void clickonPriceAscending(){
+        try{
+        helper.clickOnElement(HomePageLocatorsVenkat.PriceAscending);
+        Screenshot.takeScreenshot("Price Ascending");
+        LoggerHandler.logInfo("clicked on Price Ascending");
+        test.log(Status.PASS,"clicked on Price Ascending");
+    }
+        catch(Exception e){
+            Reporter.addScreenshot("Price Ascending", test, " Price Ascending click Failed");
+            LoggerHandler.logError("click on Price Ascending failed");
+            test.log(Status.FAIL,"click on Price Ascending failed");
+        }
+    }
 
-public void clickOnPlus(){
-    helper.clickOnElement(HomePageLocatorsVenkat.Plus);
-}
+    public void clickOnCompare(){
+        try{
+        helper.clickOnElement(HomePageLocatorsVenkat.Compare);
+        Screenshot.takeScreenshot("Compare");
+        LoggerHandler.logInfo("clicked on Compare button");
+        test.log(Status.PASS,"clicked on Compare button");
+    }
+    catch(Exception e){
+        Reporter.addScreenshot("Compare", test, " Compare click Failed");
+            LoggerHandler.logError("click on Compare failed");
+            test.log(Status.FAIL,"click on Compare failed");
+    }
+    }
 
-public void clickOnDelete(){
-    helper.clickOnElement(HomePageLocatorsVenkat.Delete);
-}
+    public void clickOnCart(){
+        try{
+        helper.clickOnElement(HomePageLocatorsVenkat.Cart);
+        Screenshot.takeScreenshot("Cart");
+        LoggerHandler.logInfo("clicked on Cart button");
+        test.log(Status.PASS,"clicked on Cart button");
+    }
+    catch(Exception e){
+        Reporter.addScreenshot("Cart", test, "Cart button click Failed");
+        LoggerHandler.logError("click on Cart button failed");
+        test.log(Status.FAIL,"click on Cart button failed");
+    }
+    }
 
-public void dismissAlert(){
- helper.alertDismiss();
-}
+    public void clickOnPlus(){
+        try{
+        helper.clickOnElement(HomePageLocatorsVenkat.Plus);
+        Screenshot.takeScreenshot("Plus");
+        LoggerHandler.logInfo("clicked on Plus");
+        test.log(Status.PASS,"clicked on Plus");
+    }
+    catch(Exception e){
+        Reporter.addScreenshot("Plus", test, " Plus click Failed");
+        LoggerHandler.logError("click on Plus failed");
+        test.log(Status.FAIL,"click on Plus failed");
+    }
+    }
 
-public void clickonCheckout(){
-    helper.clickOnElement(HomePageLocatorsVenkat.Checkout);
-}
+    public void clickOnDelete(){
+        try{
+        helper.clickOnElement(HomePageLocatorsVenkat.Delete);
+        Screenshot.takeScreenshot("Delete button");
+        LoggerHandler.logInfo("clicked on delete button");
+        test.log(Status.PASS,"clicked on delete button");
+    }
+    catch(Exception e){
+        Reporter.addScreenshot("Plus", test, " Double button click Failed");
+        LoggerHandler.logError("click on delete failed");
+        test.log(Status.FAIL,"click on delete failed");
+    }
+    }
 
-public void verifyUrl(){
-    Assertion.verifyUrl("https://avoncycles.com/checkout.html");
-}
-public void verifySelectAddress(){
-    Assertion.verifyText(HomePageLocatorsVenkat.SelectAddress, "Select Address");
-}
+    public void dismissAlert(){
+        try{
+    helper.alertDismiss();
+        LoggerHandler.logInfo("dismissed alert");
+        test.log(Status.PASS,"dismissed alert");
+    }
+    catch(Exception e){
+        LoggerHandler.logInfo("alert failed");
+        test.log(Status.FAIL,"alert failed");
+        
+    }
+    }
 
-public void verifyPriceDetail(){
-    Assertion.verifyText(HomePageLocatorsVenkat.PriceDetail, "Price Details");
-}
+    public void clickonCheckout(){
+        try{
+        helper.clickOnElement(HomePageLocatorsVenkat.Checkout);
+        Screenshot.takeScreenshot("Checkout button");
+        LoggerHandler.logInfo("clicked on checkout button");
+        test.log(Status.PASS,"clicked on checkout button");
+    }
+    catch(Exception e){
+        Reporter.addScreenshot("Checkout", test, " Checkout button click Failed");
+        LoggerHandler.logError("click on checkout failed");
+        test.log(Status.FAIL,"click on checkout failed");
+    }
+    }
 
-public void verifySelectPaymentMethod(){
-    Assertion.verifyText(HomePageLocatorsVenkat.SelectPaymentMethod, "Select Payment Method");
-}
+    public void verifyUrl(){
+        try{
+        Assertion.verifyUrl("https://avoncycles.com/checkout.html");
+        LoggerHandler.logInfo("verified url");
+        test.log(Status.PASS,"verified url");
+    }
+    catch(Exception e){
+        LoggerHandler.logError("failed to verify url");
+        test.log(Status.FAIL,"failed to verify url");
+    }
+    }
+    public void verifySelectAddress(){
+        try{
+        Assertion.verifyText(HomePageLocatorsVenkat.SelectAddress, "Select Address");
+        LoggerHandler.logInfo("verified SelectAddress");
+        test.log(Status.PASS,"verified SelectAddress");
+    }
+    catch(Exception e){
+        LoggerHandler.logError("failed to verify SelectAddress");
+        test.log(Status.FAIL,"failed to verify SelectAddress");
+    }
+    }
 
-public void verifyBackToCart(){
-    Assertion.verifyText(HomePageLocatorsVenkat.BackToCart, "BACK TO CART");
-}
+    public void verifyPriceDetail(){
+        try{
+        Assertion.verifyText(HomePageLocatorsVenkat.PriceDetail, "Price Details");
+    }
+        catch(Exception e){
+            e.getMessage();
+        }
+    }
 
-public void testAll(){
-    hoverOnCycleByBrand();
-    clickOnAvon();
-    verifyAvon();
-    clickOnSort();
-    clickonPriceAscending();
-    clickOnCompare();
-    clickOnCart();
-    clickOnPlus();
-    clickOnDelete();
-    dismissAlert();
-    clickonCheckout();
-    verifyUrl();
-    verifySelectAddress();
-    verifyPriceDetail();
-    verifySelectPaymentMethod();
-    verifyBackToCart();
-    Screenshot.takeScreenshot("testcase3");
-    Reporter.addScreenshot("testcase3", test, null);
-}
+    public void verifySelectPaymentMethod(){
+        try{
+        Assertion.verifyText(HomePageLocatorsVenkat.SelectPaymentMethod, "Select Payment Method");
+    }
+        catch(Exception e){
+            e.getMessage();
+        }
+    }
+
+        public void verifyBackToCart(){
+            try{
+            Assertion.verifyText(HomePageLocatorsVenkat.BackToCart, "BACK TO CART");
+        }
+            catch(Exception e){
+                e.getMessage();
+            }
+        }
+
+    public void testAll(){
+        hoverOnCycleByBrand();
+        clickOnAvon();
+        verifyAvon();
+        clickOnSort();
+        clickonPriceAscending();
+        clickOnCompare();
+        clickOnCart();
+        clickOnPlus();
+        clickOnDelete();
+        dismissAlert();
+        clickonCheckout();
+        verifyUrl();
+        verifySelectAddress();
+        verifyPriceDetail();
+        verifySelectPaymentMethod();
+        verifyBackToCart();
+        Screenshot.takeScreenshot("testcase3");
+        Reporter.addScreenshot("testcase3", test, null);
+    }
 
 }

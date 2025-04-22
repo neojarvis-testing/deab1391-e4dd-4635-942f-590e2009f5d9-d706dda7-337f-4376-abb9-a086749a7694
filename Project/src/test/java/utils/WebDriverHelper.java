@@ -81,6 +81,9 @@ public class WebDriverHelper {
         Alert alert=driver.switchTo().alert();
         alert.dismiss();
     }
+    public void navigateBack(){
+        driver.navigate().back();
+    }
 
     public void iterate(String str, String str1) {
         List<WebElement> list1 = getElementsByXPath(str);
