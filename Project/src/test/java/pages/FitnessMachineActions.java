@@ -1,8 +1,8 @@
 package pages;
-
+ 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-
+ 
 import uistore.FitnessMachinesLocators;
 import utils.Assertion;
 import utils.Base;
@@ -11,7 +11,7 @@ import utils.LoggerHandler;
 import utils.Reporter;
 import utils.Screenshot;
 import utils.WebDriverHelper;
-
+ 
 public class FitnessMachineActions {
 public ExtentTest test;
 public WebDriverHelper helper;
@@ -189,7 +189,7 @@ public void inputEmail(ExtentTest test){
     helper.typeInElement(FitnessMachinesLocators.email,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 6, 0));
     LoggerHandler.logInfo("Entered email in input field");
     test.log(Status.PASS,"Entered email in input field");
-
+ 
 } catch (Exception e) {
     Reporter.addScreenshot("Email", test, "Failed to input Email", Base.driver);
     LoggerHandler.logError("Failed to input Email");
@@ -225,7 +225,7 @@ public void clickOnSubmit(ExtentTest test){
         Screenshot.takeScreenshot("Submit");
         LoggerHandler.logInfo("Clicked on Submit button");
         test.log(Status.PASS,"Clicked on Submit button");
-        
+       
     }
         catch (Exception e) {
             Reporter.addScreenshot("Submit", test, "Click on Submit button failed", Base.driver);
@@ -258,9 +258,9 @@ public void testFitnessMachines(ExtentTest test){
     try {
         Thread.sleep(3000);
     } catch (InterruptedException e) {
-        // TODO Auto-generated catch block
         e.printStackTrace();
     }
     captureScreenshot(test);
 }
 }
+ 

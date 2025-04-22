@@ -1,8 +1,8 @@
 package pages;
-
+ 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-
+ 
 import uistore.GearPageLocators;
 import utils.WebDriverHelper;
 import utils.Base;
@@ -10,7 +10,7 @@ import utils.ExcelReader;
 import utils.LoggerHandler;
 import utils.Reporter;
 import utils.Screenshot;
-
+ 
 public class GearPageActions {
 public ExtentTest test;
 public WebDriverHelper helper;
@@ -58,10 +58,10 @@ public void clickOnSearchBar(ExtentTest test){
         LoggerHandler.logError("Unable to click on SearchBar");
         test.log(Status.FAIL,"Unable to click on SearchBar");
       }
-
+ 
 }
 public void sendData(ExtentTest test){
-    
+   
 try {
     helper.typeInElement(GearPageLocators.searchBar,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 0, 0));
     helper.enter(GearPageLocators.searchBar);
@@ -115,7 +115,7 @@ public void enterFirstName(ExtentTest test){
 public void enterLastName(ExtentTest test){
     try {
         helper.typeInElement(GearPageLocators.lastName,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 1, 1));
-        helper.enter(GearPageLocators.lastName); 
+        helper.enter(GearPageLocators.lastName);
         LoggerHandler.logInfo("Entered LastName");
         test.log(Status.PASS,"Entered LastName");
     } catch (Exception e) {
@@ -126,7 +126,7 @@ public void enterLastName(ExtentTest test){
 public void enterEmail(ExtentTest test){
     try {
         helper.typeInElement(GearPageLocators.email,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 2, 0));
-        helper.enter(GearPageLocators.email); 
+        helper.enter(GearPageLocators.email);
     } catch (Exception e) {
         e.getMessage();
       }
@@ -134,7 +134,7 @@ public void enterEmail(ExtentTest test){
 public void enterPhoneNumber(ExtentTest test){
     try {
         helper.typeInElement(GearPageLocators.phoneNumber,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 2, 1));
-        helper.enter(GearPageLocators.phoneNumber); 
+        helper.enter(GearPageLocators.phoneNumber);
     } catch (Exception e) {
         e.getMessage();
       }  
@@ -142,7 +142,7 @@ public void enterPhoneNumber(ExtentTest test){
 public void enterPostCode(ExtentTest test){
     try {
         helper.typeInElement(GearPageLocators.postcode,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 3, 0));
-        helper.enter(GearPageLocators.postcode); 
+        helper.enter(GearPageLocators.postcode);
     } catch (Exception e) {
         e.getMessage();
       }
@@ -150,7 +150,7 @@ public void enterPostCode(ExtentTest test){
 public void enterState(ExtentTest test){
     try {
         helper.typeInElement(GearPageLocators.state,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 3, 1));
-        helper.enter(GearPageLocators.state); 
+        helper.enter(GearPageLocators.state);
     } catch (Exception e) {
         e.getMessage();
       }
@@ -158,7 +158,7 @@ public void enterState(ExtentTest test){
 public void enterCity(ExtentTest test){
     try {
         helper.typeInElement(GearPageLocators.city,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 4, 0));
-        helper.enter(GearPageLocators.city); 
+        helper.enter(GearPageLocators.city);
     } catch (Exception e) {
         e.getMessage();
       }
@@ -166,7 +166,7 @@ public void enterCity(ExtentTest test){
 public void enterAddress(ExtentTest test){
     try {
         helper.typeInElement(GearPageLocators.address,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 4, 1));
-        helper.enter(GearPageLocators.address); 
+        helper.enter(GearPageLocators.address);
     } catch (Exception e) {
         e.getMessage();
       }
@@ -174,7 +174,7 @@ public void enterAddress(ExtentTest test){
 public void enterCouponCode(ExtentTest test){
     try {
         helper.typeInElement(GearPageLocators.coupon,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 5, 0));
-        helper.enter(GearPageLocators.coupon); 
+        helper.enter(GearPageLocators.coupon);
     }catch (Exception e) {
         e.getMessage();
       }
@@ -237,3 +237,5 @@ public void testGear(ExtentTest test){
     clickOnProceedToPayment(test);
 }
 }
+ 
+ 

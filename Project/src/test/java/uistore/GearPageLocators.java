@@ -1,7 +1,7 @@
 package uistore;
 
 import org.openqa.selenium.By;
-
+ 
 public class GearPageLocators {
 public static By accept=By.xpath("//button[@id='acceptCookies']");
 public static By searchIcon=By.xpath("(//span[@class='icon-icon-Search'])[1]");
