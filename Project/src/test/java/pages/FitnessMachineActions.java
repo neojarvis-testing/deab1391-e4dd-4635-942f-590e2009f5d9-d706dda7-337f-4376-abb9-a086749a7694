@@ -252,6 +252,7 @@ public void testFitnessMachines(ExtentTest test){
     //verifyProductModel();
     inputName(test);
     inputEmail(test);
+    // inputPhone(test);
     //inputPhone(test);
     inputCity(test);
     clickOnSubmit(test);
