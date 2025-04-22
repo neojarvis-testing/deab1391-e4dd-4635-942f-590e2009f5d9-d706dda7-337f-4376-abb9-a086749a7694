@@ -1,14 +1,12 @@
+
  package runner;
- 
  import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
- 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
- 
 import pages.AboutusActionsVenkat;
 import pages.AccolodesActionsRam;
 import pages.BusinessPageActions;
@@ -41,13 +39,19 @@ public class TestRunner extends Base {
     }
  
     @Test
+    public void testCase1() throws InterruptedException {
+        test = report.createTest("testcase1");
+        GearPageActions ga = new GearPageActions();
+        ga.testGear(test);
+    }
+
+    @Test
     public void testCase2() {
         test = report.createTest("Test Case 02");
         HomePageActionsRam hpa = new HomePageActionsRam();
         hpa.test1(test);
  
     }
- 
     @Test
     public void testCase7() {
         test = report.createTest("Test Case 07");
@@ -55,26 +59,27 @@ public class TestRunner extends Base {
         aar.test2(test);
     }
  
+
     @Test
     public void testcase3() {
         test = report.createTest("testcase3");
         ha = new HomePageActionsVenkat(test);
         ha.testAll();
     }
- 
+
     @Test
-    public void testcase4() {
+    public void testcase8() {
         test = report.createTest("testcase8");
         va = new AboutusActionsVenkat(test);
         va.testAll();
  
     }
- 
+
     @Test
-    public void test10() {
-        test = report.createTest("Cambio Bikes");
-        CambioActions cambio = new CambioActions();
-        cambio.testCase10(test);
+    public void testCase4() {
+        test = report.createTest("Test Case 4");
+        businesspageactions = new BusinessPageActions(test);
+        businesspageactions.testCase4();
     }
  
     @Test
@@ -83,6 +88,7 @@ public class TestRunner extends Base {
         NewLaunchActions newlaunch = new NewLaunchActions();
         newlaunch.testCase5(test);
     }
+
  
     @Test
     public void testCase1() throws InterruptedException {
@@ -98,12 +104,20 @@ public class TestRunner extends Base {
         ga.testFitnessMachines(test);
  
     }
- 
+
     @Test
-    public void testcase8() {
-        test = report.createTest("Test Case 4");
-        businesspageactions = new BusinessPageActions(test);
-        businesspageactions.testCase4();
+    public void testCase7() {
+        test = report.createTest("Test Case 07");
+        AccolodesActionsRam aar = new AccolodesActionsRam();
+        aar.test2(test);
+    }
+
+    @Test
+    public void testcase8(){
+        test=report.createTest("testcase8");
+        va=new AboutusActionsVenkat(test);
+        va.testAll();
+
     }
  
     @Test
@@ -112,7 +126,14 @@ public class TestRunner extends Base {
         cyclespageactions = new CyclesPageActions(test);
         cyclespageactions.testCase9();
     }
- 
+
+    @Test
+    public void test10() {
+        test = report.createTest("Cambio Bikes");
+        CambioActions cambio = new CambioActions();
+        cambio.testCase10(test);
+    }
+
     @AfterMethod
     public void tear() {
         driver.quit();
