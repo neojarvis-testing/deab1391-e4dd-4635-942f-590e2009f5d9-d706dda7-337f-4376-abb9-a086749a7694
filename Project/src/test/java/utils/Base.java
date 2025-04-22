@@ -21,7 +21,6 @@ public class Base {
         try {
             fis = new FileInputStream(propertiesPath);
             prop.load(fis);
-
             ChromeOptions options = new ChromeOptions();
             driver = new RemoteWebDriver(new URL(prop.getProperty("gridurl")), options);
             driver.manage().window().maximize();
@@ -32,7 +31,6 @@ public class Base {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         WebDriverListener listener = new EventHandler();
         driver = new EventFiringDecorator<>(listener).decorate(driver);
     }

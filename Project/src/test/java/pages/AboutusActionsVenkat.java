@@ -37,7 +37,6 @@ public class AboutusActionsVenkat {
     }
     public void clickOnReadmore(){
         try{
-
             helper.clickOnElement(AboutUsLocatorsVenkat.readmore);
             helper.navigateBack();
             LoggerHandler.logInfo("navigate to home page");

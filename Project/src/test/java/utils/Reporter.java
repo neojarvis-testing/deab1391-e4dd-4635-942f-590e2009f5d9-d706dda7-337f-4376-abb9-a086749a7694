@@ -9,8 +9,9 @@ import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.*;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
- 
+
 public class Reporter {
+
     private static ExtentReports extent;
  
     public static ExtentReports createReport(String reportName) {
@@ -32,8 +33,9 @@ public class Reporter {
         }
         return extent;
     }
- 
-    public static void addScreenshot(String filename, ExtentTest test, String description, WebDriver driver) {
+
+    public static void addScreenshot(String filename, ExtentTest test, String description,WebDriver driver) {
+
         try {
             String timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
             String screenshotPath = System.getProperty("user.dir") + "/reports/" + filename + "_" + timestamp + ".png";
