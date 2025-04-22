@@ -6,6 +6,7 @@ import java.util.Set;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -111,6 +112,11 @@ public class WebDriverHelper {
 
     }
 
+    public void scrollBy(){
+        JavascriptExecutor js=(JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,400)");
+    }
+
     public List<WebElement> getElementsByXPath(String str) {
         try {
             return driver.findElements(By.xpath(str));
@@ -123,6 +129,14 @@ public class WebDriverHelper {
 
     
         
+
+    public void alertDismiss(){
+        Alert alert=driver.switchTo().alert();
+        alert.dismiss();
+    }
+    public void navigateBack(){
+        driver.navigate().back();
+    }
 
     public void iterate(String str, String str1) {
         try {
@@ -141,15 +155,19 @@ public class WebDriverHelper {
     }
 
     public void sortFilter(By locator, String str) {
-        try {
-            WebElement ele = driver.findElement(locator);
-            Select select = new Select(ele);
-            select.selectByVisibleText(str);
-        } catch (Exception e) {
-           e.getMessage();
-        }
-
+        WebElement ele = driver.findElement(locator);
+        Select select = new Select(ele);
+        select.selectByVisibleText(str);
     }
+
+    public void navigateBack(){
+        driver.navigate().back();
+    } 
+
+    public void alertDismiss(){
+        Alert alert = driver.switchTo().alert();
+        alert.dismiss();
+    }  
 
     public void dropdown(By locator, String str) {
         try {
@@ -163,15 +181,6 @@ public class WebDriverHelper {
         } catch (Exception e) {
             e.getMessage();
         }
-
     }
-     public void navigateBack(){
-        driver.navigate().back();
-    } 
-    
-    public void alertDismiss(){
-        Alert alert=driver.switchTo().alert();
-        alert.dismiss();
     }
-
 }

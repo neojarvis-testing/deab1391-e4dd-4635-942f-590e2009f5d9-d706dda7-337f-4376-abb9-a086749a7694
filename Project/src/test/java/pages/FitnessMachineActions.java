@@ -253,6 +253,7 @@ public void testFitnessMachines(ExtentTest test){
     inputName(test);
     inputEmail(test);
     // inputPhone(test);
+    //inputPhone(test);
     inputCity(test);
     clickOnSubmit(test);
     try {
@@ -263,3 +264,4 @@ public void testFitnessMachines(ExtentTest test){
     captureScreenshot(test);
 }
 }
+ 
