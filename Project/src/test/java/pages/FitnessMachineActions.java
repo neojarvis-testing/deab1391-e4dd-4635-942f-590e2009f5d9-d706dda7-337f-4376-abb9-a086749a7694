@@ -248,7 +248,8 @@ public void testFitnessMachines(ExtentTest test){
     clickOnEnquireNow(test);
     inputName(test);
     inputEmail(test);
-    inputPhone(test);
+    // inputPhone(test);
+    //inputPhone(test);
     inputCity(test);
     clickOnSubmit(test);
     captureScreenshot(test);

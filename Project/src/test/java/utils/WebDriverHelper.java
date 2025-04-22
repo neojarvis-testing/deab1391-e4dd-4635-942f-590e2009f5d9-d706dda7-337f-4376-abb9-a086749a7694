@@ -130,6 +130,14 @@ public class WebDriverHelper {
     
         
 
+    public void alertDismiss(){
+        Alert alert=driver.switchTo().alert();
+        alert.dismiss();
+    }
+    public void navigateBack(){
+        driver.navigate().back();
+    }
+
     public void iterate(String str, String str1) {
         try {
             List<WebElement> list1 = getElementsByXPath(str);
@@ -173,7 +181,6 @@ public class WebDriverHelper {
         } catch (Exception e) {
             e.getMessage();
         }
- 
     }
-
+    }
 }
