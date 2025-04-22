@@ -1,47 +1,60 @@
 package runner;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
 
+import pages.CambioActions;
+import pages.NewLaunchActions;
 import utils.Base;
-import utils.LoggerHandler;
 import utils.Reporter;
-import utils.Screenshot;
 
 public class TestRunner extends Base { 
     ExtentReports report;
     ExtentTest test;
 
+    @BeforeClass
+    public void reports()
+    {
+        report= Reporter.createReport("Avon cycles report");
+    }
+
     @BeforeMethod 
     public void launch(){
         openBrowser();
-        report= Reporter.createReport("Sample report");
-        test = report.createTest("Sam");
     } 
 
     @Test
-    public void test1()throws InterruptedException{ 
-        WebElement ele = driver.findElement(By.xpath("//a[text()='Contact']"));
-        ele.click();
-        Thread.sleep(5000);
-        Screenshot.takeScreenshot("sample");
-        LoggerHandler.logInfo("Sharmila");
-        test.info("Sharmila");
-        test.log(Status.PASS,"Hello");
-        Reporter.addScreenshot("Sampleee", test, "S", driver);
+    public void test10()
+    { 
+        test = report.createTest("Cambio Bikes");
+        CambioActions cambio = new CambioActions();
+        cambio.testCase10(test);
+    } 
+
+    @Test
+    public void test5()
+    { 
+        test = report.createTest("User registration & Login");
+        NewLaunchActions newlaunch = new NewLaunchActions();
+        newlaunch.testCase5(test);
     } 
 
     @AfterMethod
-    public void tear(){
-        report.flush();
+    public void tear()
+    {
         driver.quit();
+    }
+
+    @AfterClass
+    public void saveReports()
+    {
+        report.flush();
     }
 
 }
