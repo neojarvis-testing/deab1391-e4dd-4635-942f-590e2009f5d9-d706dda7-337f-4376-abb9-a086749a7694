@@ -1,6 +1,6 @@
 
- package runner;
- import org.testng.annotations.AfterClass;
+package runner;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -79,12 +79,14 @@ public class TestRunner extends Base {
         newlaunch.testCase5(test);
     }
     @Test
+
     public void testCase1() {
         test = report.createTest("testcase1");
         GearPageActions ga = new GearPageActions();
         ga.testGear(test);
     }
     @Test
+
     public void testCase6() {
         test = report.createTest("testcase6");
         FitnessMachineActions ga = new FitnessMachineActions();
