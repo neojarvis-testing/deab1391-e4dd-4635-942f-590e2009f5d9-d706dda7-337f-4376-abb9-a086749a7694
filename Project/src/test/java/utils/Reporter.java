@@ -1,17 +1,18 @@
 package utils;
-
+ 
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+
 import com.aventstack.extentreports.*;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-
+ 
 public class Reporter {
     private static ExtentReports extent;
-
+ 
     public static ExtentReports createReport(String reportName) {
         if (extent == null) {
             String timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
@@ -23,7 +24,7 @@ public class Reporter {
             ExtentSparkReporter spark = new ExtentSparkReporter(reportPath);
             spark.config().setReportName(reportName);
             spark.config().setDocumentTitle("Automation Report");
-
+ 
             extent = new ExtentReports();
             extent.attachReporter(spark);
             extent.setSystemInfo("OS", System.getProperty("os.name"));
@@ -31,7 +32,7 @@ public class Reporter {
         }
         return extent;
     }
-
+ 
     public static void addScreenshot(String filename, ExtentTest test, String description, WebDriver driver) {
         try {
             String timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
@@ -44,5 +45,7 @@ public class Reporter {
             e.getMessage(); 
         }
     }
-
+ 
 }
+ 
+ 
