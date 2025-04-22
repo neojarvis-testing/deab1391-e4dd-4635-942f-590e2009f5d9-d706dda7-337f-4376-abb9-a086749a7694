@@ -1,19 +1,18 @@
 package runner;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
 
+import pages.FitnessMachineActions;
+import pages.GearPageActions;
 import utils.Base;
-import utils.LoggerHandler;
 import utils.Reporter;
-import utils.Screenshot;
+
 
 public class TestRunner extends Base { 
     ExtentReports report;
@@ -23,19 +22,21 @@ public class TestRunner extends Base {
     public void launch(){
         openBrowser();
         report= Reporter.createReport("Sample report");
-        test = report.createTest("Sam");
+        // test = report.createTest("Sam");
     } 
 
     @Test
-    public void test1()throws InterruptedException{ 
-        WebElement ele = driver.findElement(By.xpath("//a[text()='Contact']"));
-        ele.click();
-        Thread.sleep(5000);
-        Screenshot.takeScreenshot("sample");
-        LoggerHandler.logInfo("Sharmila");
-        test.info("Sharmila");
-        test.log(Status.PASS,"Hello");
-        Reporter.addScreenshot("Sampleee", test, "S", driver);
+    public void testCase1()throws InterruptedException{ 
+        test=report.createTest("testcase1");
+        GearPageActions ga=new GearPageActions();
+        ga.testGear(test);
+    } 
+    @Test
+    public void testCase2()throws InterruptedException{ 
+        test=report.createTest("testcase2");
+        FitnessMachineActions ga=new FitnessMachineActions();        
+        ga.testFitnessMachines(test);
+
     } 
 
     @AfterMethod

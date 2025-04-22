@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Set;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -71,6 +72,11 @@ public class WebDriverHelper {
 
     }
 
+    public void scrollBy(){
+        JavascriptExecutor js=(JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,400)");
+    }
+
     public List<WebElement> getElementsByXPath(String str) {
         return driver.findElements(By.xpath(str));
     }
@@ -90,6 +96,17 @@ public class WebDriverHelper {
         WebElement ele = driver.findElement(locator);
         Select select = new Select(ele);
         select.selectByVisibleText(str);
-    }
+    } 
+
+    // public String readdata(int r,int c){
+    //     try{
+    //     String data=ExcelReader.readData(System.getProperty("user.dir") + "/testdata/data.xlsx","Sheet1", r, c);
+    //     return data;
+    //     }
+    //     catch(Exception e){
+    //       e.printStackTrace();
+    //       return null;
+    //     }
+    //   }
 
 }
