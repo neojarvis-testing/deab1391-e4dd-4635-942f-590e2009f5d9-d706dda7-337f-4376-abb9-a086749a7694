@@ -85,14 +85,14 @@ public class TestRunner extends Base {
     }
  
     @Test
-    public void testCase1() throws InterruptedException {
+    public void testCase1(){
         test = report.createTest("testcase1");
         GearPageActions ga = new GearPageActions();
         ga.testGear(test);
     }
  
     @Test
-    public void testCase6() throws InterruptedException {
+    public void testCase6(){
         test = report.createTest("testcase6");
         FitnessMachineActions ga = new FitnessMachineActions();
         ga.testFitnessMachines(test);

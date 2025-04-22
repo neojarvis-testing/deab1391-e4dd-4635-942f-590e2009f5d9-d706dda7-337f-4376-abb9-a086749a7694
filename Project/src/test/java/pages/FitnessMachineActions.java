@@ -244,22 +244,13 @@ public void testFitnessMachines(ExtentTest test){
     hoverOnDomesticGym(test);
     hoverOnCardioLine(test);
     clickOnTreadmills(test);
-    // verifyDomesticUrl();
     clickOnFirstProduct(test);
-    //verifySpecificationText();
     clickOnEnquireNow(test);
-    //verifyProductName();
-    //verifyProductModel();
     inputName(test);
     inputEmail(test);
     inputPhone(test);
     inputCity(test);
     clickOnSubmit(test);
-    try {
-        Thread.sleep(3000);
-    } catch (InterruptedException e) {
-        e.printStackTrace();
-    }
     captureScreenshot(test);
 }
 }
