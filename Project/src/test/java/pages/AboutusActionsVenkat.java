@@ -1,14 +1,14 @@
 package pages;
-
+ 
 import com.aventstack.extentreports.ExtentTest;
-
+ 
 import uistore.AboutUsLocatorsVenkat;
 import utils.Assertion;
 import utils.Base;
 import utils.LoggerHandler;
 import utils.Reporter;
 import utils.WebDriverHelper;
-
+ 
 public class AboutusActionsVenkat {
      WebDriverHelper helper;
     ExtentTest test;
@@ -16,7 +16,7 @@ public class AboutusActionsVenkat {
         this.test=test;
         helper=new WebDriverHelper(Base.driver);
     }
-
+ 
     public void clickOnAcceptCookies(){
         try{
             helper.clickOnElement(AboutUsLocatorsVenkat.cookies);
@@ -25,10 +25,10 @@ public class AboutusActionsVenkat {
             e.getMessage();
         }
     }
-
+ 
     public void clickOnAboutUs(){
         try{
-            
+           
             helper.clickOnElement(AboutUsLocatorsVenkat.aboutUs);
              }
         catch(Exception e){
@@ -37,7 +37,6 @@ public class AboutusActionsVenkat {
     }
     public void clickOnReadmore(){
         try{
-           
             helper.clickOnElement(AboutUsLocatorsVenkat.readmore);
             helper.navigateBack();
             LoggerHandler.logInfo("navigate to home page");
@@ -59,7 +58,7 @@ public class AboutusActionsVenkat {
             e.getMessage();
         }
     }
-
+ 
     public void clickOnCarrer(){
         try{
             helper.clickOnElement(AboutUsLocatorsVenkat.carrer);
@@ -68,7 +67,7 @@ public class AboutusActionsVenkat {
             e.getMessage();
         }
     }
-
+ 
     public void clickOnApplyNow(){
         try{
             helper.clickOnElement(AboutUsLocatorsVenkat.applyNow);
@@ -82,7 +81,7 @@ public class AboutusActionsVenkat {
             e.getMessage();
         }
     }
-
+ 
     public void clickonLifeAtAvon(){
         try{
             helper.clickOnElement(AboutUsLocatorsVenkat.lifeAtAvon);
@@ -95,7 +94,7 @@ public class AboutusActionsVenkat {
             e.getMessage();
         }
     }
-
+ 
     public void clickonCorporate(){
         try{
             helper.clickOnElement(AboutUsLocatorsVenkat.corporate);
@@ -108,17 +107,17 @@ public class AboutusActionsVenkat {
             e.getMessage();
         }
     }
-
+ 
     public void verifyUrlofAnnualReports(){
         try{
         Assertion.verifyUrl("https://avoncycles.com/corporate/annual-reports");
-        Reporter.addScreenshot("annual_reports", test, null);
+        Reporter.addScreenshot("annual_reports", test, null, Base.driver);
         }
         catch(Exception e){
             e.getMessage();
         }
     }
-
+ 
     public void testAll(){
         clickOnAcceptCookies();
         clickOnAboutUs();

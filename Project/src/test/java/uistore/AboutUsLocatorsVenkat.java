@@ -1,7 +1,7 @@
 package uistore;
-
+ 
 import org.openqa.selenium.By;
-
+ 
 public class AboutUsLocatorsVenkat {
     public static By cookies=By.cssSelector("button[class='accept btn']");
     public static By aboutUs=By.cssSelector("a[href='https://avoncycles.com/about/']");

@@ -5,10 +5,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+
 import com.aventstack.extentreports.*;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
-public class Reporter extends Base{
+public class Reporter{
     private static ExtentReports extent;
 
     public static ExtentReports createReport(String reportName) {
@@ -17,7 +19,7 @@ public class Reporter extends Base{
             String reportsDir = System.getProperty("user.dir") + "/reports";
             String reportPath = reportsDir + "/" + (reportName.isEmpty() ? "Test_Report" : reportName) + "_" + timestamp
                     + ".html";
-            new File(reportsDir).mkdirs(); // Ensure reports directory exists
+            new File(reportsDir).mkdirs();
 
             ExtentSparkReporter spark = new ExtentSparkReporter(reportPath);
             spark.config().setReportName(reportName);
@@ -31,16 +33,16 @@ public class Reporter extends Base{
         return extent;
     }
 
-    public static void addScreenshot(String filename, ExtentTest test, String description) {
+    public static void addScreenshot(String filename, ExtentTest test, String description,WebDriver driver) {
         try {
             String timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
             String screenshotPath = System.getProperty("user.dir") + "/reports/" + filename + "_" + timestamp + ".png";
             File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            org.apache.commons.io.FileUtils.copyFile(src, new File(screenshotPath)); // Save the screenshot
+            org.apache.commons.io.FileUtils.copyFile(src, new File(screenshotPath)); 
 
             test.info(description, MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
         } catch (Exception e) {
-            e.printStackTrace();
+            e.getMessage(); 
         }
     }
 
