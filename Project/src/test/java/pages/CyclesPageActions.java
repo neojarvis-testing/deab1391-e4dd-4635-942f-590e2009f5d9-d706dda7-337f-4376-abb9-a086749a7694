@@ -2,8 +2,8 @@ package pages;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-
-
+ 
+ 
 import uistore.CyclesPageLocators;
 import utils.Assertion;
 import utils.Base;
@@ -11,16 +11,16 @@ import utils.LoggerHandler;
 import utils.Reporter;
 import utils.Screenshot;
 import utils.WebDriverHelper;
-
+ 
 public class CyclesPageActions {
      public WebDriverHelper helper;
     public ExtentTest test;
-    
+   
     public CyclesPageActions(ExtentTest test){
         helper = new WebDriverHelper(Base.driver);
         this.test = test;
     }
-
+ 
      /*
      * Method Name: verifyCycleText
      * Author Name: Chikka Anjani
@@ -28,9 +28,9 @@ public class CyclesPageActions {
      * Return Type: NA
      * Parameter List:NA
      */
-
-
-
+ 
+ 
+ 
 public void verifyCycleText(ExtentTest test){
     try{
         Assertion.verifyText(CyclesPageLocators.cycles, "MTB Cycles (Single Speed)");
@@ -42,7 +42,7 @@ public void verifyCycleText(ExtentTest test){
         test.log(Status.FAIL, "unable to verify cycle text");
     }
 }
-
+ 
   /*
      * Method Name: clickOnCyclux
      * Author Name: Chikka Anjani
@@ -50,7 +50,7 @@ public void verifyCycleText(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
+ 
 public void clickOnCyclux(ExtentTest test){
     try{
     helper.waitForElementToBeVisible(CyclesPageLocators.cyclux, 10);
@@ -65,7 +65,7 @@ public void clickOnCyclux(ExtentTest test){
         test.log(Status.FAIL, "unable to click on cyclux");
     }
 }
-
+ 
  /*
      * Method Name: verifyCycleUrl
      * Author Name: Chikka Anjani
@@ -73,7 +73,7 @@ public void clickOnCyclux(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
+ 
 public void verifyCycleUrl(ExtentTest test){
     try{
     Assertion.verifyUrl("https://avoncycles.com/brand/cyclux.html");
@@ -86,7 +86,7 @@ public void verifyCycleUrl(ExtentTest test){
         test.log(Status.FAIL, "Not verified url");
     }
 }
-
+ 
   /*
      * Method Name: clickOnAvon
      * Author Name: Chikka Anjani
@@ -94,8 +94,8 @@ public void verifyCycleUrl(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
-
+ 
+ 
 public void clickOnAvon(ExtentTest test){
     try{
     helper.waitForElementToBeVisible(CyclesPageLocators.avon, 10);
@@ -110,7 +110,7 @@ public void clickOnAvon(ExtentTest test){
         test.log(Status.FAIL, "unable to click on avon");
     }
 }
-
+ 
  /*
      * Method Name: verifyAvonUrl
      * Author Name: Chikka Anjani
@@ -118,8 +118,8 @@ public void clickOnAvon(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
-
+ 
+ 
 public void verifyAvonUrl(ExtentTest test){
     try{
     Assertion.verifyUrl("https://avoncycles.com/brand/avon.html");
@@ -138,8 +138,8 @@ public void verifyAvonUrl(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
-
+ 
+ 
 public void verifyPriceText(ExtentTest test){
     try{
    Assertion.verifyText(CyclesPageLocators.price, "PRICE");
@@ -151,7 +151,7 @@ public void verifyPriceText(ExtentTest test){
     test.log(Status.FAIL, "unable to verify price text");
     }
 }
-
+ 
   /*
      * Method Name: clickOnReview
      * Author Name: Chikka Anjani
@@ -159,7 +159,7 @@ public void verifyPriceText(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
+ 
 public void clickOnReview(ExtentTest test){
     try{
     helper.waitForElementToBeVisible(CyclesPageLocators.review, 10);
@@ -174,7 +174,7 @@ public void clickOnReview(ExtentTest test){
         test.log(Status.FAIL, "unable to click on review");
     }
 }
-
+ 
   /*
      * Method Name: clickOnFirstReview
      * Author Name: Chikka Anjani
@@ -182,8 +182,8 @@ public void clickOnReview(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
-
+ 
+ 
 public void clickOnFirstReview(ExtentTest test){
     try{
     helper.waitForElementToBeVisible(CyclesPageLocators.firstreview, 10);
@@ -198,7 +198,7 @@ public void clickOnFirstReview(ExtentTest test){
         test.log(Status.FAIL, "unable to click on first option in review");
     }
 }
-
+ 
   /*
      * Method Name: clickOnSize
      * Author Name: Chikka Anjani
@@ -206,8 +206,8 @@ public void clickOnFirstReview(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
-
+ 
+ 
 public void clickOnSize(ExtentTest test){
     try{
     helper.waitForElementToBeVisible(CyclesPageLocators.size, 10);
@@ -222,7 +222,7 @@ public void clickOnSize(ExtentTest test){
         test.log(Status.FAIL, "unable to click on Size");
     }
 }
-
+ 
   /*
      * Method Name: clickOnFirstSize
      * Author Name: Chikka Anjani
@@ -230,8 +230,8 @@ public void clickOnSize(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
-
+ 
+ 
 public void clickOnFirstsize(ExtentTest test){
     try{
     helper.waitForElementToBeVisible(CyclesPageLocators.firstsize, 10);
@@ -246,7 +246,7 @@ public void clickOnFirstsize(ExtentTest test){
         test.log(Status.FAIL, "unable to click on first option in size");
     }
 }
-
+ 
   /*
      * Method Name: clickOnColor
      * Author Name: Chikka Anjani
@@ -254,7 +254,7 @@ public void clickOnFirstsize(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
+ 
 public void clickOnColor(ExtentTest test){
     try{
     helper.waitForElementToBeVisible(CyclesPageLocators.color, 10);
@@ -269,7 +269,7 @@ public void clickOnColor(ExtentTest test){
         test.log(Status.FAIL, "unable to click on color");
     }
 }
-
+ 
   /*
      * Method Name: clickOnClear
      * Author Name: Chikka Anjani
@@ -277,8 +277,8 @@ public void clickOnColor(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
-
+ 
+ 
 public void clickOnClear(ExtentTest test){
     try{
     helper.waitForElementToBeVisible(CyclesPageLocators.clear, 10);
@@ -293,7 +293,7 @@ public void clickOnClear(ExtentTest test){
         test.log(Status.FAIL, "unable to click on clear");
     }
 }
-
+ 
   /*
      * Method Name: clickOnSort
      * Author Name: Chikka Anjani
@@ -301,7 +301,7 @@ public void clickOnClear(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
+ 
 public void clickOnSort(ExtentTest test){
     try{
     helper.waitForElementToBeVisible(CyclesPageLocators.sort, 10);
@@ -316,7 +316,7 @@ public void clickOnSort(ExtentTest test){
         test.log(Status.FAIL, "unable to click on sort");
     }
 }
-
+ 
   /*
      * Method Name: clickOnSortFirst
      * Author Name: Chikka Anjani
@@ -324,7 +324,7 @@ public void clickOnSort(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
+ 
 public void clickOnSortFirst(ExtentTest test){
     try{
     helper.waitForElementToBeVisible(CyclesPageLocators.sortfirst, 10);
@@ -339,7 +339,7 @@ public void clickOnSortFirst(ExtentTest test){
         test.log(Status.FAIL, "unable to click on first option in sort");
     }
 }
-
+ 
   /*
      * Method Name: clickOnFirstProd
      * Author Name: Chikka Anjani
@@ -347,7 +347,7 @@ public void clickOnSortFirst(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
+ 
 public void clickOnFirstProd(ExtentTest test){
     try{
     helper.waitForElementToBeVisible(CyclesPageLocators.firstprod, 10);
@@ -358,12 +358,12 @@ public void clickOnFirstProd(ExtentTest test){
     test.log(Status.PASS, "clicked on First product");
     }catch(Exception e){
         Reporter.addScreenshot("FirstProduct", test, "clicked on firstproduct failed", Base.driver);
-
+ 
         LoggerHandler.logError("unable to click on First product");
         test.log(Status.FAIL, "unable to click on First product");
     }
 }
-
+ 
  /*
      * Method Name: verifyAddText
      * Author Name: Chikka Anjani
@@ -371,8 +371,8 @@ public void clickOnFirstProd(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
-
+ 
+ 
 public void verifyAddText(ExtentTest test){
     try{
    Assertion.verifyText(CyclesPageLocators.add, "ADD TO CART");
@@ -384,7 +384,7 @@ public void verifyAddText(ExtentTest test){
    test.log(Status.FAIL, "unable to verify add text");
    }
 }
-
+ 
  public void testCase9(){
     verifyCycleText(test);
     clickOnCyclux(test);
@@ -404,3 +404,4 @@ public void verifyAddText(ExtentTest test){
     verifyAddText(test);
 }
 }
+ 

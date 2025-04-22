@@ -1,7 +1,7 @@
 package uistore;
 
 import org.openqa.selenium.By;
-
+ 
 public class BusinessPageLocators {
     public static By business = By.xpath("//a[text()='International Business']");
     public static By image = By.xpath("//img[@src='img/avon-int-logo.jpg']");

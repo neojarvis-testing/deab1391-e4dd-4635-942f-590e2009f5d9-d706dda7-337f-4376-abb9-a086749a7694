@@ -1,7 +1,7 @@
 package uistore;
 
 import org.openqa.selenium.By;
-
+ 
 public class CyclesPageLocators {
     public static By cycles = By.xpath("//a[text()='MTB Cycles (Single Speed)']");
     public static By cyclux = By.xpath("(//a[text()='Cyclux'])[2]");
@@ -18,3 +18,4 @@ public class CyclesPageLocators {
     public static By firstprod = By.xpath("(//img[@class='img-fluid'])[7]");
     public static By add = By.xpath("(//a[text()='Add to cart'])[1]");
 }
+ 

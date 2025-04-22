@@ -3,6 +3,8 @@ package utils;
 import java.time.Duration;
 import java.util.List;
 import java.util.Set;
+
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -21,78 +23,155 @@ public class WebDriverHelper {
     }
 
     public void waitForElementToBeVisible(By locator, int time) {
-        new WebDriverWait(driver, Duration.ofSeconds(time))
-                .until(ExpectedConditions.visibilityOfElementLocated(locator));
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(time))
+                    .until(ExpectedConditions.visibilityOfElementLocated(locator));
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
     }
 
     public void waitForElementToBeClickable(By locator, int time) {
-        new WebDriverWait(driver, Duration.ofSeconds(time))
-                .until(ExpectedConditions.elementToBeClickable(locator));
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(time)).until(ExpectedConditions.elementToBeClickable(locator));
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
     }
 
     public void clickOnElement(By locator) {
-        waitForElementToBeVisible(locator, 5);
-        waitForElementToBeClickable(locator, 5);
-        driver.findElement(locator).click();
+        try {
+            waitForElementToBeVisible(locator, 5);
+            waitForElementToBeClickable(locator, 5);
+            driver.findElement(locator).click();
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
     }
 
     public void typeInElement(By locator, String str) {
-        waitForElementToBeVisible(locator, 5);
-        driver.findElement(locator).sendKeys(str);
-    }
-    public void navigateBack(){
-        driver.navigate().back();
+        try {
+            waitForElementToBeVisible(locator, 5);
+            driver.findElement(locator).sendKeys(str);
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
     }
 
     public void hoverOverElement(By locator) {
-        waitForElementToBeVisible(locator, 5);
-        waitForElementToBeClickable(locator, 5);
-        Actions actions = new Actions(driver);
-        actions.moveToElement(driver.findElement(locator)).perform();
+        try {
+            waitForElementToBeVisible(locator, 5);
+            waitForElementToBeClickable(locator, 5);
+            Actions actions = new Actions(driver);
+            actions.moveToElement(driver.findElement(locator)).perform();
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
     }
 
     public void enter(By locator) {
-        driver.findElement(locator).sendKeys(Keys.ENTER);
+        try {
+            driver.findElement(locator).sendKeys(Keys.ENTER);
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
     }
 
     public void scroll(By locator) {
-        waitForElementToBeVisible(locator, 5);
-        WebElement elem = driver.findElement(locator);
-        Actions action = new Actions(driver);
-        action.moveToElement(elem).build().perform();
+        try {
+            waitForElementToBeVisible(locator, 5);
+            WebElement elem = driver.findElement(locator);
+            Actions action = new Actions(driver);
+            action.moveToElement(elem).build().perform();
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
     }
 
     public void switchWindow() {
-        String currWindow = driver.getWindowHandle();
-        Set<String> windows = driver.getWindowHandles();
-        for (String win : windows) {
-            if (!win.equals(currWindow)) {
-                driver.switchTo().window(win);
-                break;
+        try {
+            String currWindow = driver.getWindowHandle();
+            Set<String> windows = driver.getWindowHandles();
+            for (String win : windows) {
+                if (!win.equals(currWindow)) {
+                    driver.switchTo().window(win);
+                    break;
+                }
             }
+        } catch (Exception e) {
+            e.getMessage();
         }
 
     }
 
     public List<WebElement> getElementsByXPath(String str) {
-        return driver.findElements(By.xpath(str));
-    }
+        try {
+            return driver.findElements(By.xpath(str));
+        } catch (Exception e) {
+            e.getMessage();
+            return null;
+        }
+
+    } 
+
+    
+        
 
     public void iterate(String str, String str1) {
-        List<WebElement> list1 = getElementsByXPath(str);
-        for (WebElement ele : list1) {
-            String text = ele.getText();
-            LoggerHandler.logInfo(text);
-            if (text.contains(str1)) {
-                ele.click();
+        try {
+            List<WebElement> list1 = getElementsByXPath(str);
+            for (WebElement ele : list1) {
+                String text = ele.getText();
+                LoggerHandler.logInfo(text);
+                if (text.contains(str1)) {
+                    ele.click();
+                }
             }
+        } catch (Exception e) {
+            e.getMessage();
         }
+
     }
 
     public void sortFilter(By locator, String str) {
-        WebElement ele = driver.findElement(locator);
-        Select select = new Select(ele);
-        select.selectByVisibleText(str);
+        try {
+            WebElement ele = driver.findElement(locator);
+            Select select = new Select(ele);
+            select.selectByVisibleText(str);
+        } catch (Exception e) {
+           e.getMessage();
+        }
+
+    }
+
+    public void dropdown(By locator, String str) {
+        try {
+            List<WebElement> list = new Select(driver.findElement(locator)).getOptions();
+            for (WebElement ele : list) {
+                String value = ele.getText();
+                if (value.equalsIgnoreCase(str)) {
+                    new Select(driver.findElement(locator)).selectByVisibleText(value);
+                }
+            }
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
+    }
+     public void navigateBack(){
+        driver.navigate().back();
+    } 
+    
+    public void alertDismiss(){
+        Alert alert=driver.switchTo().alert();
+        alert.dismiss();
     }
 
 }

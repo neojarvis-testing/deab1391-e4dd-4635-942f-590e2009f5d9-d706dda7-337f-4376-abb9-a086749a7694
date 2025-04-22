@@ -1,8 +1,9 @@
 package pages;
 
+ 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-
+ 
 import uistore.BusinessPageLocators;
 import utils.Assertion;
 import utils.Base;
@@ -11,17 +12,17 @@ import utils.LoggerHandler;
 import utils.Reporter;
 import utils.Screenshot;
 import utils.WebDriverHelper;
-
+ 
 public class BusinessPageActions {
     public WebDriverHelper helper;
     public ExtentTest test;
-    
+   
     public BusinessPageActions(ExtentTest test){
-        
+       
         helper = new WebDriverHelper(Base.driver);
         this.test = test;
     }
-
+ 
     /*
      * Method Name: clickOnBusiness
      * Author Name: Chikka Anjani
@@ -29,7 +30,7 @@ public class BusinessPageActions {
      * Return Type: NA
      * Parameter List:NA
      */
-
+ 
     public void clickOnBusiness(ExtentTest test){
         try{
         helper.waitForElementToBeVisible(BusinessPageLocators.business, 10);
@@ -44,7 +45,7 @@ public class BusinessPageActions {
             test.log(Status.FAIL, "unable to click on business");
         }
     }
-
+ 
      /*
      * Method Name: verifyPageUrl
      * Author Name: Chikka Anjani
@@ -52,7 +53,7 @@ public class BusinessPageActions {
      * Return Type: NA
      * Parameter List:NA
      */
-
+ 
     public void verifyPageUrl(ExtentTest test){
         try{
         Assertion.verifyUrl("https://avoncycles.com/international-business");
@@ -62,10 +63,10 @@ public class BusinessPageActions {
         }catch(Exception e){
             LoggerHandler.logError("Not verified url");
             test.log(Status.FAIL, "Not verified url");
-            
+           
         }
     }
-
+ 
     /*
      * Method Name: verifyPageText
      * Author Name: Chikka Anjani
@@ -73,7 +74,7 @@ public class BusinessPageActions {
      * Return Type: NA
      * Parameter List:NA
      */
-
+ 
     public void verifyPageText(ExtentTest test){
         try{
         Assertion.verifyText(BusinessPageLocators.certifications, "Certifications");
@@ -85,7 +86,7 @@ public class BusinessPageActions {
         test.log(Status.FAIL, "unable to verify page text");
     }
 }
-
+ 
  /*
      * Method Name: sendemail
      * Author Name: Chikka Anjani
@@ -93,22 +94,21 @@ public class BusinessPageActions {
      * Return Type: NA
      * Parameter List:NA
      */
-
+ 
    public void sendEmail(ExtentTest test){
 try {
-    helper.typeInElement(BusinessPageLocators.email,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 0, 0));
-    helper.enter(BusinessPageLocators.email);
+    helper.typeInElement(BusinessPageLocators.email,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 0, 3));
     LoggerHandler.logInfo("Entered email");
     test.info("Entered email");
     test.log(Status.PASS, "Entered email");
     Screenshot.takeScreenshot("Email");
-  }catch (Exception e) { 
+  }catch (Exception e) {
     Reporter.addScreenshot("Email", test, "clicked on email failed", Base.driver);
     LoggerHandler.logError("unable to verify email");
     test.log(Status.FAIL, "unable to verify email");
    }
 }
-
+ 
  /*
      * Method Name: verifyEmail
      * Author Name: Chikka Anjani
@@ -127,7 +127,7 @@ public void verifyEmail(ExtentTest test){
     test.log(Status.FAIL, "unable to verify email");
    }
 }
-
+ 
             /*
      * Method Name: verifyPhone
      * Author Name: Chikka Anjani
@@ -135,8 +135,8 @@ public void verifyEmail(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
-
+ 
+ 
 public void verifyPhone(ExtentTest test){
     try{
     Assertion.verifyText(BusinessPageLocators.phonelabel, "Ph. No (required)");
@@ -147,9 +147,9 @@ public void verifyPhone(ExtentTest test){
         LoggerHandler.logError("unable to verify phone number");
         test.log(Status.FAIL, "unable to verify phone number");
     }
-
+ 
 }
-
+ 
 /*
      * Method Name: sendPhone
      * Author Name: Chikka Anjani
@@ -157,12 +157,11 @@ public void verifyPhone(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
-
+ 
+ 
 public void sendPhone(ExtentTest test){
     try {
-        helper.typeInElement(BusinessPageLocators.phone,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 1, 0));
-        helper.enter(BusinessPageLocators.email);
+        helper.typeInElement(BusinessPageLocators.phone,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 1, 3));
         LoggerHandler.logInfo("entered phone number");
         test.info("entered phone number");
         test.log(Status.PASS, "entered phone number");
@@ -173,7 +172,7 @@ public void sendPhone(ExtentTest test){
        test.log(Status.FAIL,"entered invalid phone number");
     }
 }
-
+ 
 /*
      * Method Name: verifyCountry
      * Author Name: Chikka Anjani
@@ -181,7 +180,7 @@ public void sendPhone(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
+ 
     public void verifyCountry(ExtentTest test){
         try{
         Assertion.verifyText(BusinessPageLocators.countrylabel, "Country");
@@ -193,7 +192,7 @@ public void sendPhone(ExtentTest test){
         test.log(Status.FAIL, "unable to verify country");
     }
 }
-
+ 
 /*
      * Method Name: sendCountry
      * Author Name: Chikka Anjani
@@ -201,12 +200,11 @@ public void sendPhone(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
-
+ 
+ 
     public void sendCountry(ExtentTest test){
         try {
-            helper.typeInElement(BusinessPageLocators.country,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 2, 0));
-            helper.enter(BusinessPageLocators.country);
+            helper.typeInElement(BusinessPageLocators.country,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 2, 3));
             LoggerHandler.logInfo("entered country");
             test.info("entered country");
             test.log(Status.PASS, "entered country");
@@ -217,7 +215,7 @@ public void sendPhone(ExtentTest test){
             test.log(Status.FAIL, "unable to enter country");
         }
     }
-
+ 
     /*
      * Method Name: verifyCompany
      * Author Name: Chikka Anjani
@@ -225,7 +223,7 @@ public void sendPhone(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
+ 
     public void verifyCompany(ExtentTest test){
         try{
             Assertion.verifyText(BusinessPageLocators.companylabel, "Company Name");
@@ -235,10 +233,10 @@ public void sendPhone(ExtentTest test){
         }catch(Exception e){
             LoggerHandler.logError("unable to verify company");
             test.log(Status.FAIL, "unable to verify company");
-
+ 
         }
     }
-
+ 
     /*
      * Method Name: sendCompany
      * Author Name: Chikka Anjani
@@ -246,12 +244,11 @@ public void sendPhone(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
-
+ 
+ 
     public void sendCompany(ExtentTest test){
         try {
-            helper.typeInElement(BusinessPageLocators.company,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 3, 0));
-            helper.enter(BusinessPageLocators.country);
+            helper.typeInElement(BusinessPageLocators.company,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 3, 3));
             LoggerHandler.logInfo("entered company");
             test.info("entered company");
             test.log(Status.PASS, "entered company");
@@ -262,7 +259,7 @@ public void sendPhone(ExtentTest test){
                test.log(Status.FAIL, "unable to enter company");
             }
         }
-
+ 
         /*
      * Method Name: verifyAddress
      * Author Name: Chikka Anjani
@@ -270,7 +267,7 @@ public void sendPhone(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
+ 
      public void verifyAddress(ExtentTest test){
         try{
             Assertion.verifyText(BusinessPageLocators.addresslabel, "Address");
@@ -282,7 +279,7 @@ public void sendPhone(ExtentTest test){
             test.log(Status.FAIL, "unable to verify address");
         }
     }
-
+ 
     /*
      * Method Name: sendAddress
      * Author Name: Chikka Anjani
@@ -290,12 +287,11 @@ public void sendPhone(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
-
+ 
+ 
     public void sendAddress(ExtentTest test){
         try {
-                helper.typeInElement(BusinessPageLocators.address,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 4, 0));
-                helper.enter(BusinessPageLocators.address);
+                helper.typeInElement(BusinessPageLocators.address,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 4, 3));
                 LoggerHandler.logInfo("entered address");
                 test.info("entered address");
                 test.log(Status.PASS, "entered address");
@@ -306,7 +302,7 @@ public void sendPhone(ExtentTest test){
             test.log(Status.FAIL, "unable to enter address");
             }
         }
-
+ 
         /*
      * Method Name: verifySubject
      * Author Name: Chikka Anjani
@@ -314,7 +310,7 @@ public void sendPhone(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
+ 
     public void verifySubject(ExtentTest test){
         try{
             Assertion.verifyText(BusinessPageLocators.subjectlabel, "Subject");
@@ -326,7 +322,7 @@ public void sendPhone(ExtentTest test){
             test.log(Status.FAIL, "unable to verify subject");
         }
     }
-
+ 
     /*
      * Method Name: sendSubject
      * Author Name: Chikka Anjani
@@ -334,12 +330,11 @@ public void sendPhone(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
-
+ 
+ 
     public void sendSubject(ExtentTest test){
         try {
-                helper.typeInElement(BusinessPageLocators.subject,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 5, 0));
-                helper.enter(BusinessPageLocators.subject);
+                helper.typeInElement(BusinessPageLocators.subject,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 5, 3));
                 LoggerHandler.logInfo("entered subject");
                 test.info("entered subject");
                 test.log(Status.PASS, "entered subject");
@@ -350,7 +345,7 @@ public void sendPhone(ExtentTest test){
             test.log(Status.FAIL, "unable to enter subject");
             }
         }
-
+ 
         /*
      * Method Name: sendMessage
      * Author Name: Chikka Anjani
@@ -358,12 +353,11 @@ public void sendPhone(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
-
+ 
+ 
     public void sendMessage(ExtentTest test){
         try {
-                helper.typeInElement(BusinessPageLocators.message,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 6, 0));
-                helper.enter(BusinessPageLocators.message);
+                helper.typeInElement(BusinessPageLocators.message,ExcelReader.readData(System.getProperty("user.dir")+"/testdata/data.xlsx/","Sheet1", 6, 3));
                 LoggerHandler.logInfo("entered message");
                 test.info("entered message");
                 test.log(Status.PASS, "entered message");
@@ -374,7 +368,7 @@ public void sendPhone(ExtentTest test){
             test.log(Status.FAIL, "unable to enter message");
             }
         }
-
+ 
         /*
      * Method Name: clickOnSend
      * Author Name: Chikka Anjani
@@ -382,23 +376,23 @@ public void sendPhone(ExtentTest test){
      * Return Type: NA
      * Parameter List:NA
      */
-
-
+ 
+ 
     public void clickOnSend(ExtentTest test){
         try{
             helper.clickOnElement(BusinessPageLocators.send);
             Screenshot.takeScreenshot("sent");
             LoggerHandler.logInfo("clicked on send");
             test.info("clicked on send");
-            test.log(Status.PASS, "clicked on send");
-            Screenshot.takeScreenshot("Send");
+                test.log(Status.PASS, "clicked on send");
+                Screenshot.takeScreenshot("Send");
             }catch(Exception e){
                 Reporter.addScreenshot("Send", test, "clicked on send failed", Base.driver);
                 LoggerHandler.logError("unable to click on send");
             test.log(Status.FAIL, "unable to click on send");
             }
         }
-
+ 
         public void testCase4(){
             clickOnBusiness(test);
             verifyPageUrl(test);
@@ -416,8 +410,8 @@ public void sendPhone(ExtentTest test){
             verifySubject(test);
             sendSubject(test);
             sendMessage(test);
-            clickOnSend(test);
-            
+           
         }
     }
          
+ 
