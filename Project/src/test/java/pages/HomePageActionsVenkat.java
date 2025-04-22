@@ -23,13 +23,13 @@ public class HomePageActionsVenkat {
         helper.hoverOverElement(HomePageLocatorsVenkat.CycleByBrand);
         Screenshot.takeScreenshot("CycleByBrand");
         LoggerHandler.logInfo("Hovered on cycleByBrand");
-        test.log(Status.PASS,"Hovered on cycleByBrand");
-       
+        test.info("Hovered on cycleBrand");
+        test.log(Status.PASS,"Hovered on cycleByBrand");  
         }
         catch(Exception e){
             Reporter.addScreenshot("CycleByBrand", test, "CycleByBrand button hover Failed",Base.driver);
-            LoggerHandler.logError("Hover on Sign up failed");
-            test.log(Status.FAIL,"Hover on Sign up failed");
+            LoggerHandler.logError("Hover on cycleBrand failed");
+            test.log(Status.FAIL,"Hover on cycleBrand failed");
         }
     }
     public void clickOnAvon(){
@@ -37,6 +37,7 @@ public class HomePageActionsVenkat {
         helper.clickOnElement(HomePageLocatorsVenkat.Avon);
         Screenshot.takeScreenshot("Avon");
         LoggerHandler.logInfo("clicked on Avon");
+        test.info("clicked on avon");
         test.log(Status.PASS,"clicked on Avon");
         }
         catch(Exception e){
@@ -50,6 +51,7 @@ public class HomePageActionsVenkat {
         try{
         Assertion.verifyText(HomePageLocatorsVenkat.Avonverify, "Avon");
         LoggerHandler.logInfo("Verified text Avon");
+        test.info("Verified test Avon");
         test.log(Status.PASS,"Verified text Avon");
         }
  
@@ -64,6 +66,7 @@ public class HomePageActionsVenkat {
         helper.clickOnElement(HomePageLocatorsVenkat.Sort);
         Screenshot.takeScreenshot("sort");
         LoggerHandler.logInfo("clicked on Sort");
+        test.info("clicked on sort");
         test.log(Status.PASS,"clicked on Sort");
         }
  
@@ -79,6 +82,7 @@ public class HomePageActionsVenkat {
         helper.clickOnElement(HomePageLocatorsVenkat.PriceAscending);
         Screenshot.takeScreenshot("Price Ascending");
         LoggerHandler.logInfo("clicked on Price Ascending");
+        test.info("clicked on Price Ascending");
         test.log(Status.PASS,"clicked on Price Ascending");
     }
         catch(Exception e){
@@ -93,6 +97,7 @@ public class HomePageActionsVenkat {
         helper.clickOnElement(HomePageLocatorsVenkat.Compare);
         Screenshot.takeScreenshot("Compare");
         LoggerHandler.logInfo("clicked on Compare button");
+        test.info("click on Compare button");
         test.log(Status.PASS,"clicked on Compare button");
     }
     catch(Exception e){
@@ -107,6 +112,7 @@ public class HomePageActionsVenkat {
         helper.clickOnElement(HomePageLocatorsVenkat.Cart);
         Screenshot.takeScreenshot("Cart");
         LoggerHandler.logInfo("clicked on Cart button");
+        test.info("click on Cart button");
         test.log(Status.PASS,"clicked on Cart button");
     }
     catch(Exception e){
@@ -121,6 +127,7 @@ public class HomePageActionsVenkat {
         helper.clickOnElement(HomePageLocatorsVenkat.Plus);
         Screenshot.takeScreenshot("Plus");
         LoggerHandler.logInfo("clicked on Plus");
+        test.info("clicked on Plus");
         test.log(Status.PASS,"clicked on Plus");
     }
     catch(Exception e){
@@ -132,10 +139,11 @@ public class HomePageActionsVenkat {
  
     public void clickOnDelete(){
         try{
-        helper.clickOnElement(HomePageLocatorsVenkat.Delete);
-        Screenshot.takeScreenshot("Delete button");
-        LoggerHandler.logInfo("clicked on delete button");
-        test.log(Status.PASS,"clicked on delete button");
+            helper.clickOnElement(HomePageLocatorsVenkat.Delete);
+            Screenshot.takeScreenshot("Delete button");
+            LoggerHandler.logInfo("clicked on delete button");
+            test.info("clicked on delete button");
+            test.log(Status.PASS,"clicked on delete button");
     }
     catch(Exception e){
         Reporter.addScreenshot("Plus", test, " Double button click Failed",Base.driver);
@@ -146,14 +154,15 @@ public class HomePageActionsVenkat {
  
     public void dismissAlert(){
         try{
-    helper.alertDismiss();
-        LoggerHandler.logInfo("dismissed alert");
-        test.log(Status.PASS,"dismissed alert");
+                helper.alertDismiss();
+                LoggerHandler.logInfo("dismissed alert");
+                test.info("clicked on dismissed alert");
+                test.log(Status.PASS,"dismissed alert");
     }
     catch(Exception e){
-        LoggerHandler.logInfo("alert failed");
-        test.log(Status.FAIL,"alert failed");
-       
+            LoggerHandler.logInfo("alert failed");
+            test.log(Status.FAIL,"alert failed");
+        
     }
     }
  
@@ -162,6 +171,7 @@ public class HomePageActionsVenkat {
         helper.clickOnElement(HomePageLocatorsVenkat.Checkout);
         Screenshot.takeScreenshot("Checkout button");
         LoggerHandler.logInfo("clicked on checkout button");
+        test.info("clicked on checkout button");
         test.log(Status.PASS,"clicked on checkout button");
     }
     catch(Exception e){
@@ -174,17 +184,25 @@ public class HomePageActionsVenkat {
     public void verifyUrl(){
         try{
         Assertion.verifyUrl("https://avoncycles.com/checkout.html");
+        LoggerHandler.logInfo("Verified url");
+        test.info("Verified url");
+        test.log(Status.PASS,"Verified url");
     }
     catch(Exception e){
-        e.getMessage();
+        LoggerHandler.logError("Not verified url");
+        test.log(Status.FAIL, "Not verified url");
     }
     }
     public void verifySelectAddress(){
         try{
         Assertion.verifyText(HomePageLocatorsVenkat.SelectAddress, "Select Address");
+        LoggerHandler.logInfo("Verified url");
+        test.info("Verified url");
+        test.log(Status.PASS,"Verified url");
     }
     catch(Exception e){
-        e.getMessage();
+        LoggerHandler.logError("unable to verify selectAddress");
+        test.log(Status.FAIL, "unab;e to verify selectAddress");
     }
     }
  
@@ -193,7 +211,7 @@ public class HomePageActionsVenkat {
         Assertion.verifyText(HomePageLocatorsVenkat.PriceDetail, "Price Details");
     }
         catch(Exception e){
-            e.getMessage();
+           
         }
     }
  
@@ -202,7 +220,7 @@ public class HomePageActionsVenkat {
         Assertion.verifyText(HomePageLocatorsVenkat.SelectPaymentMethod, "Select Payment Method");
     }
         catch(Exception e){
-            e.getMessage();
+            
         }
     }
  
@@ -211,7 +229,7 @@ public class HomePageActionsVenkat {
             Assertion.verifyText(HomePageLocatorsVenkat.BackToCart, "BACK TO CART");
         }
             catch(Exception e){
-                e.getMessage();
+                
             }
         }
  
