@@ -263,3 +263,4 @@ public void testFitnessMachines(ExtentTest test){
     captureScreenshot(test);
 }
 }
+ 
