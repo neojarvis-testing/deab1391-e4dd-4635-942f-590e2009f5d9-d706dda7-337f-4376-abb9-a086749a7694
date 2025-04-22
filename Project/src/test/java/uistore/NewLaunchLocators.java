@@ -3,7 +3,7 @@ package uistore;
 import org.openqa.selenium.By;
 
 public class NewLaunchLocators {
-    
+   
     public static By newLaunch = By.cssSelector("a[href='https://avoncycles.com/category/new-launches.html']");
     public static By heartIcon = By.xpath("(//span[@class='icon-heart'])[1]");
     public static By loginTitle = By.xpath("//h1[text()='Login account']");
@@ -19,5 +19,5 @@ public class NewLaunchLocators {
     public static By registerPassword = By.cssSelector("input[placeholder='Password']");
     public static By signUp = By.cssSelector("button[name='SubmitCreate']");
 
-
 }
+ 
