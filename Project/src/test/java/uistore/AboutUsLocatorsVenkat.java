@@ -2,6 +2,13 @@ package uistore;
  
 import org.openqa.selenium.By;
  
+ 
+/*
+ * Class Name: AboutUsLocatorsVenkat
+ * Author Name: Venkatanarayana
+ * Description: This class contains locators for elements on the "About Us" page.
+ */
+ 
 public class AboutUsLocatorsVenkat {
     public static By cookies=By.cssSelector("button[class='accept btn']");
     public static By aboutUs=By.cssSelector("a[href='https://avoncycles.com/about/']");
@@ -17,3 +24,4 @@ public class AboutUsLocatorsVenkat {
     public static By corporate=By.cssSelector("a[href='https://avoncycles.com/corporate/']");
     public static By annualReports=By.xpath("(//img[@src='https://avoncycles.com/corporates/cimg01.jpg'])[1]");
 }
+ 

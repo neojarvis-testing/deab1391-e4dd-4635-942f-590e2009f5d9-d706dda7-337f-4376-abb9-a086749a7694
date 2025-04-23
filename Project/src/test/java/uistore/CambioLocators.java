@@ -1,7 +1,13 @@
 package uistore;
 
 import org.openqa.selenium.By;
- 
+
+/*
+ * Class Name: CambioLocators
+ * Author Name: Sharmila Abdul
+ * Description: Contains locators for elements on the Cambio Bikes page.
+ */
+
 public class CambioLocators {
     public static By cambio = By.cssSelector("a.link[href='https://cambiobikes.com/']");
     public static By Bikes = By.xpath("//span[text()='Bikes']");
@@ -16,5 +22,5 @@ public class CambioLocators {
     public static By viewCart = By.cssSelector("a[class='button wc-forward']");
     public static By cartTotals = By.xpath("//h2[text()='Cart totals']");
     public static By proceedCheckOut = By.xpath("(//a[@href='https://cambiobikes.com/checkout/'])[1]");
- 
+
 }

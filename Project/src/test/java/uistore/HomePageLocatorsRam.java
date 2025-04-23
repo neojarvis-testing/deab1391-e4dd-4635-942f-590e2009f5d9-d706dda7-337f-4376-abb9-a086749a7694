@@ -2,6 +2,12 @@ package uistore;
 
 import org.openqa.selenium.By;
 
+/*
+ * Class Name: HomePageLocatorsRam
+ * Author Name: Ramavathar
+ * Description: This class contains locators for elements on the "Home Page" page.
+ */
+
 public class HomePageLocatorsRam { 
     public static By biycle = By.xpath("(//a[@class='nav-link'])[3]");
     public static By electric = By.xpath("(//a[@class='dropdown-item'])[5]");
@@ -24,3 +30,4 @@ public class HomePageLocatorsRam {
 
 
 }
+

@@ -1,7 +1,11 @@
 package uistore;
-
-import org.openqa.selenium.By;
  
+import org.openqa.selenium.By;
+/*
+     * Class Name: GearPageLocators
+     * Author Name: Jindam Pragna
+     * Description: This class contains locators for elements on GearPage
+     */
 public class GearPageLocators {
 public static By accept=By.xpath("//button[@id='acceptCookies']");
 public static By searchIcon=By.xpath("(//span[@class='icon-icon-Search'])[1]");
@@ -22,3 +26,5 @@ public static By razorPay=By.xpath("//label[@class='radio-inline']/input[@value=
 public static By confirmCheckout=By.cssSelector("#sc_button-form-process");
 public static By proceedToPayment=By.xpath(("//button[text()='Proceed To Payment']"));
 }
+ 
+ 

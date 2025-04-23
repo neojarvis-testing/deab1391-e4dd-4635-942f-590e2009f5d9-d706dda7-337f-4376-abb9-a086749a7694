@@ -9,6 +9,14 @@ import org.openqa.selenium.TakesScreenshot;
 import org.apache.commons.io.FileUtils;
 
 public class Screenshot extends Base {
+
+     /*
+         * Method Name: takeScreenshot
+         * Author Name: Venkatanarayana
+         * Description: This method captures a screenshot, names it with a timestamp, and saves it to a specified directory.
+         * Return Type: void
+         * Parameter List: String filename - The base name for the screenshot file.
+         */
     public static void takeScreenshot(String filename) {
         String timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
         String name = filename + timestamp + ".png";

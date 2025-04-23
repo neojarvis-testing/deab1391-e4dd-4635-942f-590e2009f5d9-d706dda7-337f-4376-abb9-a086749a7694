@@ -1,7 +1,11 @@
 package uistore;
  
 import org.openqa.selenium.By;
- 
+/*
+     * Class Name: FitnessMachinesLocators
+     * Author Name: Jindam Pragna
+     * Description: This class contains locators for elements on FitnessPageLocators
+     */
 public class FitnessMachinesLocators {
 public static By avonfitness=By.xpath("//a[text()='Avon Fitness Machines']");
 public static By popUp=By.xpath("//button[@data-dismiss='modal']");
@@ -19,3 +23,4 @@ public static By phoneNumber=By.xpath("//input[@id='product_enquiry_phone']");
 public static By city=By.xpath("//input[@id='product_enquiry_city']");
 public static By submit=By.xpath("(//button[text()='Submit'])[1]");
 }
+ 

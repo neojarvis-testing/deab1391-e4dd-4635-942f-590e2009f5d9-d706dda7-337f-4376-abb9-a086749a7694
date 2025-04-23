@@ -6,12 +6,19 @@ import java.util.Date;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-
 import com.aventstack.extentreports.*;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
  
 public class Reporter {
     private static ExtentReports extent;
+   
+/* Method Name: createReport
+ * Author Name: Sharmila,Pragna,Ramavathar,Venkat,Anjani.
+ * Description: This method initializes and configures the ExtentReports instance for generating test reports.
+ * Return Type: ExtentReports
+ * Parameter List: String reportName
+ */
+ 
  
     public static ExtentReports createReport(String reportName) {
         if (extent == null) {
@@ -20,7 +27,7 @@ public class Reporter {
             String reportPath = reportsDir + "/" + (reportName.isEmpty() ? "Test_Report" : reportName) + "_" + timestamp
                     + ".html";
             new File(reportsDir).mkdirs();
-
+ 
             ExtentSparkReporter spark = new ExtentSparkReporter(reportPath);
             spark.config().setReportName(reportName);
             spark.config().setDocumentTitle("Automation Report");
@@ -33,19 +40,25 @@ public class Reporter {
         return extent;
     }
  
+    /*
+ * Method Name: addScreenshot
+ * Author Name: Sharmila,Pragna,Ramavathar,Venkat,Anjani.
+ * Description: This method captures a screenshot and adds it to the ExtentTest report.
+ * Return Type: void
+ * Parameter List: String filename, ExtentTest test, String description, WebDriver driver
+ */
+ 
     public static void addScreenshot(String filename, ExtentTest test, String description, WebDriver driver) {
         try {
             String timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
             String screenshotPath = System.getProperty("user.dir") + "/reports/" + filename + "_" + timestamp + ".png";
             File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            org.apache.commons.io.FileUtils.copyFile(src, new File(screenshotPath)); 
-
+            org.apache.commons.io.FileUtils.copyFile(src, new File(screenshotPath));
+ 
             test.info(description, MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
         } catch (Exception e) {
-            e.getMessage(); 
+            e.getMessage();
         }
     }
  
 }
- 
- 

@@ -1,5 +1,5 @@
 package pages;
-
+ 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
  
@@ -13,33 +13,40 @@ import utils.Screenshot;
 import utils.WebDriverHelper;
  
 public class CyclesPageActions {
-     public WebDriverHelper helper;
+    public WebDriverHelper helper;
     public ExtentTest test;
+    LoggerHandler loggerHandler;
+    Assertion assertion;
    
     public CyclesPageActions(ExtentTest test){
         helper = new WebDriverHelper(Base.driver);
         this.test = test;
+        loggerHandler = new LoggerHandler();
+        assertion = new Assertion();
     }
  
      /*
      * Method Name: verifyCycleText
      * Author Name: Chikka Anjani
-     * Description: This method verifies the "Cycle" label
-     * Return Type: NA
-     * Parameter List:NA
+     * Description: This method verifies the text Cycle.
+     * Return Type: void
+     * Parameter List:ExtentTest test
      */
  
  
  
 public void verifyCycleText(ExtentTest test){
     try{
-        Assertion.verifyText(CyclesPageLocators.cycles, "MTB Cycles (Single Speed)");
-        LoggerHandler.logInfo("verified Cycle text");
-        test.info("Verified cycle text");
-        test.log(Status.PASS, "Verified cycle text");
+        assertion.verifyText(CyclesPageLocators.cycles, "MTB Cycles (Single Speed)");
+        loggerHandler.logInfo("Verified Cycle text");
+        test.info("Verified Cycle Text");
+        test.log(Status.PASS, "Verified Cycle text");
+        Screenshot.takeScreenshot("Cycle");
     }catch(Exception e){
-        LoggerHandler.logError("unable to verify cycle text");
-        test.log(Status.FAIL, "unable to verify cycle text");
+        Reporter.addScreenshot("Cycle", test, "Verified Cycle failed", Base.driver);
+        loggerHandler.logError("Unable to Verify Cycle text");
+        test.info("Unable to Verify Cycle text");
+        test.log(Status.FAIL, "Unable to Verify Cycle text");
     }
 }
  
@@ -47,8 +54,8 @@ public void verifyCycleText(ExtentTest test){
      * Method Name: clickOnCyclux
      * Author Name: Chikka Anjani
      * Description: This method clicks on the cyclux element
-     * Return Type: NA
-     * Parameter List:NA
+     * Return Type: void
+     * Parameter List:ExtentTest test
      */
  
 public void clickOnCyclux(ExtentTest test){
@@ -56,34 +63,38 @@ public void clickOnCyclux(ExtentTest test){
     helper.waitForElementToBeVisible(CyclesPageLocators.cyclux, 10);
     helper.clickOnElement(CyclesPageLocators.cyclux);
     Screenshot.takeScreenshot("Cyclux");
-    LoggerHandler.logInfo("clicked on cyclux");
-    test.info("clicked on cyclux");
-    test.log(Status.PASS, "clicked on cyclux");
+    loggerHandler.logInfo("Clicked on Cyclux");
+    test.info("Clicked on Cyclux");
+    test.log(Status.PASS, "Clicked on Cyclux");
     }catch(Exception e){
-        Reporter.addScreenshot("Cyclux", test, "clicked on cyclux failed", Base.driver);
-        LoggerHandler.logError("unable to click on cyclux");
-        test.log(Status.FAIL, "unable to click on cyclux");
+        Reporter.addScreenshot("Cyclux", test, "Clicked on Cyclux failed", Base.driver);
+        loggerHandler.logError("Unable to Click on Cyclux");
+        test.info("Unable to Click on Cyclux");
+        test.log(Status.FAIL, "Unable to Click on Cyclux");
     }
 }
  
  /*
      * Method Name: verifyCycleUrl
      * Author Name: Chikka Anjani
-     * Description: This method verifies the "Cycle url" label
-     * Return Type: NA
-     * Parameter List:NA
+     * Description: This method verifies the Cycle url.
+     * Return Type: void
+     * Parameter List:ExtentTest test
      */
  
 public void verifyCycleUrl(ExtentTest test){
     try{
-    Assertion.verifyUrl("https://avoncycles.com/brand/cyclux.html");
+    assertion.verifyUrl("https://avoncycles.com/brand/cyclux.html");
     helper.navigateBack();
-    LoggerHandler.logInfo("URL Verified");
+    loggerHandler.logInfo("URL Verified");
     test.info("Verified URL");
     test.log(Status.PASS,"Verified URL");
+    Screenshot.takeScreenshot("CycleURL");
     }catch(Exception e){
-        LoggerHandler.logError("Not verified url");
-        test.log(Status.FAIL, "Not verified url");
+        Reporter.addScreenshot("CycleURL", test, "Verified CycleURL failed", Base.driver);
+        loggerHandler.logError("Not Verified URL");
+        test.info("Not Verified URL");
+        test.log(Status.FAIL, "Not Verified URL");
     }
 }
  
@@ -91,8 +102,8 @@ public void verifyCycleUrl(ExtentTest test){
      * Method Name: clickOnAvon
      * Author Name: Chikka Anjani
      * Description: This method clicks on the avon element
-     * Return Type: NA
-     * Parameter List:NA
+     * Return Type: void
+     * Parameter List:ExtentTest test
      */
  
  
@@ -101,54 +112,61 @@ public void clickOnAvon(ExtentTest test){
     helper.waitForElementToBeVisible(CyclesPageLocators.avon, 10);
     helper.clickOnElement(CyclesPageLocators.avon);
     Screenshot.takeScreenshot("Avon");
-    LoggerHandler.logInfo("clicked on Avon");
-    test.info("clicked on Avon");
-    test.log(Status.PASS, "clicked on Avon");
+    loggerHandler.logInfo("Clicked on Avon");
+    test.info("Clicked on Avon");
+    test.log(Status.PASS, "Clicked on Avon");
     }catch(Exception e){
-        Reporter.addScreenshot("Avon", test, "clicked on avon failed", Base.driver);
-        LoggerHandler.logError("unable to click on avon");
-        test.log(Status.FAIL, "unable to click on avon");
+        Reporter.addScreenshot("Avon", test, "Clicked on avon failed", Base.driver);
+        loggerHandler.logError("Unable to Click on Avon");
+        test.info("Unable to Click on Avon");
+        test.log(Status.FAIL, "Unable to Click on Avon");
     }
 }
  
  /*
      * Method Name: verifyAvonUrl
      * Author Name: Chikka Anjani
-     * Description: This method verifies the "AvonUrl" label
-     * Return Type: NA
-     * Parameter List:NA
+     * Description: This method verifies the AvonUrl.
+     * Return Type: void
+     * Parameter List:ExtentTest test
      */
  
  
 public void verifyAvonUrl(ExtentTest test){
     try{
-    Assertion.verifyUrl("https://avoncycles.com/brand/avon.html");
-    LoggerHandler.logInfo("URL Verified");
+    assertion.verifyUrl("https://avoncycles.com/brand/avon.html");
+    loggerHandler.logInfo("URL Verified");
     test.info("Verified URL");
     test.log(Status.PASS,"Verified URL");
+    Screenshot.takeScreenshot("Avon");
     }catch(Exception e){
-        LoggerHandler.logError("Not verified url");
-        test.log(Status.FAIL, "Not verified url");  
+        Reporter.addScreenshot("Avon", test, "Verified Avon failed", Base.driver);
+        loggerHandler.logError("Not Verified URL");
+        test.info("Not Verified URL");
+        test.log(Status.FAIL, "Not Verified URL");  
     }
 }
  /*
      * Method Name: verifyPriceText
      * Author Name: Chikka Anjani
-     * Description: This method verifies the "price" label
-     * Return Type: NA
-     * Parameter List:NA
+     * Description: This method verifies the price.
+     * Return Type: void
+     * Parameter List:ExtentTest test
      */
  
  
 public void verifyPriceText(ExtentTest test){
     try{
-   Assertion.verifyText(CyclesPageLocators.price, "PRICE");
-   LoggerHandler.logInfo("verified price text");
-   test.info("Verified price text");
-   test.log(Status.PASS, "Verified price text");
+   assertion.verifyText(CyclesPageLocators.price, "PRICE");
+   loggerHandler.logInfo("Verified Price text");
+   test.info("Verified Price text");
+   test.log(Status.PASS, "Verified Price text");
+   Screenshot.takeScreenshot("Price");
     }catch(Exception e){
-    LoggerHandler.logError("unable to verify price text");
-    test.log(Status.FAIL, "unable to verify price text");
+        Reporter.addScreenshot("Price", test, "Verified Price failed", Base.driver);
+    loggerHandler.logError("Unable to Verify Price text");
+    test.info("Unable to Verify Price text");
+    test.log(Status.FAIL, "Unable to Verify Price text");
     }
 }
  
@@ -156,8 +174,8 @@ public void verifyPriceText(ExtentTest test){
      * Method Name: clickOnReview
      * Author Name: Chikka Anjani
      * Description: This method clicks on the review element
-     * Return Type: NA
-     * Parameter List:NA
+     * Return Type: void
+     * Parameter List:ExtentTest test
      */
  
 public void clickOnReview(ExtentTest test){
@@ -165,13 +183,14 @@ public void clickOnReview(ExtentTest test){
     helper.waitForElementToBeVisible(CyclesPageLocators.review, 10);
     helper.clickOnElement(CyclesPageLocators.review);
     Screenshot.takeScreenshot("Review");
-    LoggerHandler.logInfo("clicked on Review");
-    test.info("clicked on Review");
-    test.log(Status.PASS, "clicked on Review");
+    loggerHandler.logInfo("Clicked on Review");
+    test.info("Clicked on Review");
+    test.log(Status.PASS, "Clicked on Review");
     }catch(Exception e){
-        Reporter.addScreenshot("Review", test, "clicked on review failed", Base.driver);
-        LoggerHandler.logError("unable to click on review");
-        test.log(Status.FAIL, "unable to click on review");
+        Reporter.addScreenshot("Review", test, "Clicked on Review failed", Base.driver);
+        loggerHandler.logError("Unable to Click on review");
+        test.info("Unable to Click on review");
+        test.log(Status.FAIL, "Unable to Click on review");
     }
 }
  
@@ -179,8 +198,8 @@ public void clickOnReview(ExtentTest test){
      * Method Name: clickOnFirstReview
      * Author Name: Chikka Anjani
      * Description: This method clicks on the first option in review element
-     * Return Type: NA
-     * Parameter List:NA
+     * Return Type: void
+     * Parameter List:ExtentTest test
      */
  
  
@@ -189,12 +208,13 @@ public void clickOnFirstReview(ExtentTest test){
     helper.waitForElementToBeVisible(CyclesPageLocators.firstreview, 10);
     helper.clickOnElement(CyclesPageLocators.firstreview);
     Screenshot.takeScreenshot("FirstReview");
-    LoggerHandler.logInfo("clicked on first option in review");
+    loggerHandler.logInfo("clicked on first option in review");
     test.info("clicked on first option in review");
     test.log(Status.PASS, "clicked on first option in review");
     }catch(Exception e){
         Reporter.addScreenshot("FirstReview", test, "clicked on firstreview failed", Base.driver);
-        LoggerHandler.logError("unable to click on first option in review");
+        loggerHandler.logError("unable to click on first option in review");
+        test.info("unable to click on first option in review");
         test.log(Status.FAIL, "unable to click on first option in review");
     }
 }
@@ -203,8 +223,8 @@ public void clickOnFirstReview(ExtentTest test){
      * Method Name: clickOnSize
      * Author Name: Chikka Anjani
      * Description: This method clicks on the size element
-     * Return Type: NA
-     * Parameter List:NA
+     * Return Type: void
+     * Parameter List:ExtentTest test
      */
  
  
@@ -213,13 +233,14 @@ public void clickOnSize(ExtentTest test){
     helper.waitForElementToBeVisible(CyclesPageLocators.size, 10);
     helper.clickOnElement(CyclesPageLocators.size);
     Screenshot.takeScreenshot("Size");
-    LoggerHandler.logInfo("clicked on Size");
-    test.info("clicked on Size");
-    test.log(Status.PASS, "clicked on Size");
+    loggerHandler.logInfo("Clicked on Size");
+    test.info("Clicked on Size");
+    test.log(Status.PASS, "Clicked on Size");
     }catch(Exception e){
-        Reporter.addScreenshot("Size", test, "clicked on size failed", Base.driver);
-        LoggerHandler.logError("unable to click on Size");
-        test.log(Status.FAIL, "unable to click on Size");
+        Reporter.addScreenshot("Size", test, "Clicked on Size failed", Base.driver);
+        loggerHandler.logError("Unable to Click on Size");
+        test.info("Unable to Click on Size");
+        test.log(Status.FAIL, "Unable to Click on Size");
     }
 }
  
@@ -227,8 +248,8 @@ public void clickOnSize(ExtentTest test){
      * Method Name: clickOnFirstSize
      * Author Name: Chikka Anjani
      * Description: This method clicks on the first option in size element
-     * Return Type: NA
-     * Parameter List:NA
+     * Return Type: void
+     * Parameter List:ExtentTest test
      */
  
  
@@ -237,13 +258,14 @@ public void clickOnFirstsize(ExtentTest test){
     helper.waitForElementToBeVisible(CyclesPageLocators.firstsize, 10);
     helper.clickOnElement(CyclesPageLocators.firstsize);
     Screenshot.takeScreenshot("FirstSize");
-    LoggerHandler.logInfo("clicked on first option in size");
-    test.info("clicked on first option in size");
-    test.log(Status.PASS, "clicked on first option in size");
+    loggerHandler.logInfo("Clicked on first option in size");
+    test.info("Clicked on first option in size");
+    test.log(Status.PASS, "Clicked on first option in size");
     }catch(Exception e){
-        Reporter.addScreenshot("FirstSize", test, "clicked on firstsize failed", Base.driver);
-        LoggerHandler.logError("unable to click on first option in size");
-        test.log(Status.FAIL, "unable to click on first option in size");
+        Reporter.addScreenshot("FirstSize", test, "Clicked on firstsize failed", Base.driver);
+        loggerHandler.logError("Unable to click on first option in size");
+        test.info("Unable to click on first option in size");
+        test.log(Status.FAIL, "Unable to click on first option in size");
     }
 }
  
@@ -251,8 +273,8 @@ public void clickOnFirstsize(ExtentTest test){
      * Method Name: clickOnColor
      * Author Name: Chikka Anjani
      * Description: This method clicks on the color element
-     * Return Type: NA
-     * Parameter List:NA
+     * Return Type: void
+     * Parameter List:ExtentTest test
      */
  
 public void clickOnColor(ExtentTest test){
@@ -260,13 +282,14 @@ public void clickOnColor(ExtentTest test){
     helper.waitForElementToBeVisible(CyclesPageLocators.color, 10);
     helper.clickOnElement(CyclesPageLocators.color);
     Screenshot.takeScreenshot("Color");
-    LoggerHandler.logInfo("clicked on color");
-    test.info("clicked on color");
-    test.log(Status.PASS, "clicked on color");
+    loggerHandler.logInfo("Clicked on color");
+    test.info("Clicked on color");
+    test.log(Status.PASS, "Clicked on color");
     }catch(Exception e){
-        Reporter.addScreenshot("Color", test, "clicked on color failed", Base.driver);
-        LoggerHandler.logError("unable to click on color");
-        test.log(Status.FAIL, "unable to click on color");
+        Reporter.addScreenshot("Color", test, "Clicked on color failed", Base.driver);
+        loggerHandler.logError("Unable to click on color");
+        test.info("Unable to click on color");        
+        test.log(Status.FAIL, "Unable to click on color");
     }
 }
  
@@ -274,8 +297,8 @@ public void clickOnColor(ExtentTest test){
      * Method Name: clickOnClear
      * Author Name: Chikka Anjani
      * Description: This method clicks on the clear element
-     * Return Type: NA
-     * Parameter List:NA
+     * Return Type: void
+     * Parameter List:ExtentTest test
      */
  
  
@@ -284,13 +307,14 @@ public void clickOnClear(ExtentTest test){
     helper.waitForElementToBeVisible(CyclesPageLocators.clear, 10);
     helper.clickOnElement(CyclesPageLocators.clear);
     Screenshot.takeScreenshot("Clear");
-    LoggerHandler.logInfo("clicked on Clear");
-    test.info("clicked on Clear");
-    test.log(Status.PASS, "clicked on Clear");
+    loggerHandler.logInfo("Clicked on Clear");
+    test.info("Clicked on Clear");
+    test.log(Status.PASS, "Clicked on Clear");
     }catch(Exception e){
         Reporter.addScreenshot("Clear", test, "clicked on clear failed", Base.driver);
-        LoggerHandler.logError("unable to click on clear");
-        test.log(Status.FAIL, "unable to click on clear");
+        loggerHandler.logError("Unable to click on clear");
+        test.info("Unable to click on clear");
+        test.log(Status.FAIL, "Unable to click on clear");
     }
 }
  
@@ -298,8 +322,8 @@ public void clickOnClear(ExtentTest test){
      * Method Name: clickOnSort
      * Author Name: Chikka Anjani
      * Description: This method clicks on the sort element
-     * Return Type: NA
-     * Parameter List:NA
+     * Return Type: void
+     * Parameter List:ExtentTest test
      */
  
 public void clickOnSort(ExtentTest test){
@@ -307,13 +331,14 @@ public void clickOnSort(ExtentTest test){
     helper.waitForElementToBeVisible(CyclesPageLocators.sort, 10);
     helper.clickOnElement(CyclesPageLocators.sort);
     Screenshot.takeScreenshot("Sort");
-    LoggerHandler.logInfo("clicked on sort");
-    test.info("clicked on sort");
-    test.log(Status.PASS, "clicked on sort");
+    loggerHandler.logInfo("Clicked on sort");
+    test.info("Clicked on sort");
+    test.log(Status.PASS, "Clicked on sort");
     }catch(Exception e){
-        Reporter.addScreenshot("Sort", test, "clicked on sort failed", Base.driver);
-        LoggerHandler.logError("unable to click on sort");
-        test.log(Status.FAIL, "unable to click on sort");
+        Reporter.addScreenshot("Sort", test, "Clicked on sort failed", Base.driver);
+        loggerHandler.logError("Unable to click on sort");
+        test.info("Unable to click on sort");
+        test.log(Status.FAIL, "Unable to click on sort");
     }
 }
  
@@ -321,8 +346,8 @@ public void clickOnSort(ExtentTest test){
      * Method Name: clickOnSortFirst
      * Author Name: Chikka Anjani
      * Description: This method clicks on the first option in sort element
-     * Return Type: NA
-     * Parameter List:NA
+     * Return Type: void
+     * Parameter List:ExtentTest test
      */
  
 public void clickOnSortFirst(ExtentTest test){
@@ -330,13 +355,14 @@ public void clickOnSortFirst(ExtentTest test){
     helper.waitForElementToBeVisible(CyclesPageLocators.sortfirst, 10);
     helper.clickOnElement(CyclesPageLocators.sortfirst);
     Screenshot.takeScreenshot("SortFirst");
-    LoggerHandler.logInfo("clicked on first option in sort");
-    test.info("clicked on first option in sort");
-    test.log(Status.PASS, "clicked on first option in sort");
+    loggerHandler.logInfo("Clicked on first option in sort");
+    test.info("Clicked on first option in sort");
+    test.log(Status.PASS, "Clicked on first option in sort");
     }catch(Exception e){
-        Reporter.addScreenshot("SortFirst", test, "clicked on sortfirst failed", Base.driver);
-        LoggerHandler.logError("unable to click on first option in sort");
-        test.log(Status.FAIL, "unable to click on first option in sort");
+        Reporter.addScreenshot("SortFirst", test, "Clicked on sortfirst failed", Base.driver);
+        loggerHandler.logError("Unable to click on first option in sort");
+        test.info("Unable to click on first option in sort");
+        test.log(Status.FAIL, "Unable to click on first option in sort");
     }
 }
  
@@ -344,8 +370,8 @@ public void clickOnSortFirst(ExtentTest test){
      * Method Name: clickOnFirstProd
      * Author Name: Chikka Anjani
      * Description: This method clicks on the first product
-     * Return Type: NA
-     * Parameter List:NA
+     * Return Type: void
+     * Parameter List:ExtentTest test
      */
  
 public void clickOnFirstProd(ExtentTest test){
@@ -353,35 +379,38 @@ public void clickOnFirstProd(ExtentTest test){
     helper.waitForElementToBeVisible(CyclesPageLocators.firstprod, 10);
     helper.clickOnElement(CyclesPageLocators.firstprod);
     Screenshot.takeScreenshot("FirstProd");
-    LoggerHandler.logInfo("clicked on First product");
-    test.info("clicked on First product");
-    test.log(Status.PASS, "clicked on First product");
+    loggerHandler.logInfo("Clicked on First product");
+    test.info("Clicked on First product");
+    test.log(Status.PASS, "Clicked on First product");
     }catch(Exception e){
-        Reporter.addScreenshot("FirstProduct", test, "clicked on firstproduct failed", Base.driver);
- 
-        LoggerHandler.logError("unable to click on First product");
-        test.log(Status.FAIL, "unable to click on First product");
+        Reporter.addScreenshot("FirstProduct", test, "Clicked on firstproduct failed", Base.driver);
+        loggerHandler.logError("Unable to click on First product");
+        test.info("Unable to click on First product");
+        test.log(Status.FAIL, "Unable to click on First product");
     }
 }
  
  /*
      * Method Name: verifyAddText
      * Author Name: Chikka Anjani
-     * Description: This method verifies the "Add" label
-     * Return Type: NA
-     * Parameter List:NA
+     * Description: This method verifies the Add.
+     * Return Type: void
+     * Parameter List:ExtentTest test
      */
  
  
 public void verifyAddText(ExtentTest test){
     try{
-   Assertion.verifyText(CyclesPageLocators.add, "ADD TO CART");
-   LoggerHandler.logInfo("verified add text");
+   assertion.verifyText(CyclesPageLocators.add, "ADD TO CART");
+   loggerHandler.logInfo("verified add text");
    test.info("Verified add text");
    test.log(Status.PASS, "Verified add text");
+   Screenshot.takeScreenshot("AddText");
    }catch(Exception e){
-    LoggerHandler.logError("unable to verify add text");
-   test.log(Status.FAIL, "unable to verify add text");
+    Reporter.addScreenshot("AddText", test, "Verified AddText failed", Base.driver);
+    loggerHandler.logError("Unable to verify add text");
+    test.info("Unable to verify add text");
+   test.log(Status.FAIL, "Unable to verify add text");
    }
 }
  

@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
- 
+
 import uistore.CambioLocators;
 import utils.Assertion;
 import utils.Base;
@@ -14,258 +14,398 @@ import utils.LoggerHandler;
 import utils.Reporter;
 import utils.Screenshot;
 import utils.WebDriverHelper;
- 
+
 public class CambioActions {
- 
+
     WebDriverHelper helper;
     ExtentTest test;
     WebDriver driver;
- 
-    public CambioActions()
-    {
+    LoggerHandler loggerHandler;
+    Assertion assertion;
+
+    public CambioActions() {
         helper = new WebDriverHelper(Base.driver);
+        loggerHandler = new LoggerHandler();
+        assertion = new Assertion();
     }
- 
-    public void clickOnCambio(ExtentTest test)
-    {
+
+    /*
+     * Method Name: clickOnCambio
+     * Author Name: Sharmila Abdul
+     * Description: Clicks on the "Cambio" section and takes a screenshot.
+     * Return type: void
+     * Param List: ExtentTest test - The ExtentTest instance for logging.
+     */
+    public void clickOnCambio(ExtentTest test) {
         try {
             helper.clickOnElement(CambioLocators.cambio);
             Screenshot.takeScreenshot("Cambio");
-            LoggerHandler.logInfo("Cambio clicked");
+            loggerHandler.logInfo("Cambio clicked");
             test.info("Cambio clicked");
-            test.log(Status.PASS,"Cambio clicked");
+            test.log(Status.PASS, "Cambio clicked");
         } catch (Exception e) {
-            Reporter.addScreenshot("Cambio", test, "Cambio click Failed",driver);
-            LoggerHandler.logError("Click on Cambio failed");
-            test.log(Status.FAIL,"Click on Cambio failed");
-        }  
+            Reporter.addScreenshot("Cambio", test, "Cambio click Failed", driver);
+            loggerHandler.logError("Click on Cambio failed");
+            test.info("Click on Cambio failed");
+            test.log(Status.FAIL, "Click on Cambio failed");
+        }
     }
- 
-    public void switchCambio(ExtentTest test)
-    {
+
+    /*
+     * Method Name: switchCambio
+     * Author Name: Sharmila Abdul
+     * Description: Switches to the Cambio window and sets timeouts.
+     * Return type: void
+     * Param List: ExtentTest test - The ExtentTest instance for logging.
+     */
+    public void switchCambio(ExtentTest test) {
         try {
             helper.switchWindow();
             Base.driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(12));
             Base.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
             Screenshot.takeScreenshot("Window switch");
-            LoggerHandler.logInfo("Window switch");
+            loggerHandler.logInfo("Window switch");
             test.info("Window switch");
-            test.log(Status.PASS,"Window switch");
+            test.log(Status.PASS, "Window switch");
         } catch (Exception e) {
-            Reporter.addScreenshot("Switch window", test, "Window switch Failed",driver);
-            LoggerHandler.logError("Window switch failed");
-            test.log(Status.FAIL,"Window switch failed");
+            Reporter.addScreenshot("Switch window", test, "Window switch Failed", driver);
+            loggerHandler.logError("Window switch failed");
+            test.info("Window switch failed");
+            test.log(Status.FAIL, "Window switch failed");
         }
-       
+
     }
- 
-    public void verifyUrl(ExtentTest test)
-    {
+
+    /*
+     * Method Name: verifyUrl
+     * Author Name: Sharmila Abdul
+     * Description: Verifies the URL of the Cambio page.
+     * Return type: void
+     * Param List: ExtentTest test - The ExtentTest instance for logging.
+     */
+    public void verifyUrl(ExtentTest test) {
         try {
-            Assertion.verifyUrl("https://cambiobikes.com/");
-            LoggerHandler.logInfo("Cambio url verified");
+            assertion.verifyUrl("https://cambiobikes.com/");
+            Screenshot.takeScreenshot("VerifyUrl");
+            loggerHandler.logInfo("Cambio url verified");
             test.info("Cambio url verified");
-            test.log(Status.PASS,"Cambio url verified");
+            test.log(Status.PASS, "Cambio url verified");
         } catch (Exception e) {
-            LoggerHandler.logError("Cambio url verification failed");
-            test.log(Status.FAIL,"Cambio url verification failed");
+            Reporter.addScreenshot("Veirfy url failed", test, "Verify url Failed", driver);
+            loggerHandler.logError("Verify url verification failed");
+            test.info("Verify url verification failed");
+            test.log(Status.FAIL, "Verify url verification failed");
         }
-       
+
     }
- 
-    public void hoverOverBikes(ExtentTest test)
-    {
+
+    /*
+     * Method Name: hoverOverBikes
+     * Author Name: Sharmila Abdul
+     * Description: Hovers over the "Bikes" section and takes a screenshot.
+     * Return type: void
+     * Param List: ExtentTest test - The ExtentTest instance for logging.
+     */
+    public void hoverOverBikes(ExtentTest test) {
         try {
             helper.hoverOverElement(CambioLocators.Bikes);
             Screenshot.takeScreenshot("Bikes hover");
-            LoggerHandler.logInfo("Hovered over Bikes");
+            loggerHandler.logInfo("Hovered over Bikes");
             test.info("Hovered over Bikes");
-            test.log(Status.PASS,"Hovered over Bikes");
+            test.log(Status.PASS, "Hovered over Bikes");
         } catch (Exception e) {
-            Reporter.addScreenshot("Bikes hover", test, "Bikes hover Failed",driver);
-            LoggerHandler.logError("Hover over Bikes failed");
-            test.log(Status.FAIL,"Hover over Bikes failed");
+            Reporter.addScreenshot("Bikes hover", test, "Bikes hover Failed", driver);
+            loggerHandler.logError("Hover over Bikes failed");
+            test.info("Hover over Bikes failed");
+            test.log(Status.FAIL, "Hover over Bikes failed");
         }
     }
- 
-    public void clickOnBestSellers(ExtentTest test)
-    {
+
+    /*
+     * Method Name: clickOnBestSellers
+     * Author Name: Sharmila Abdul
+     * Description: Clicks on the "Best Sellers" section and takes a screenshot.
+     * Return type: void
+     * Param List: ExtentTest test - The ExtentTest instance for logging.
+     */
+    public void clickOnBestSellers(ExtentTest test) {
         try {
             helper.clickOnElement(CambioLocators.BestSellers);
             Screenshot.takeScreenshot("Clicked on Best Sellers");
-            LoggerHandler.logInfo("Clicked on Best Sellers");
+            loggerHandler.logInfo("Clicked on Best Sellers");
             test.info("Clicked on Best Sellers");
-            test.log(Status.PASS,"Clicked on Best Sellers");
+            test.log(Status.PASS, "Clicked on Best Sellers");
         } catch (Exception e) {
-            Reporter.addScreenshot("Clicked Best Sellers", test, "Clicked Best Sellers Failed",driver);
-            LoggerHandler.logError("Best Sellers failed");
-            test.log(Status.FAIL,"Bikes click failed");
+            Reporter.addScreenshot("Clicked Best Sellers", test, "Clicked Best Sellers Failed", driver);
+            loggerHandler.logError("Best Sellers failed");
+            test.info("Bikes click failed");
+            test.log(Status.FAIL, "Bikes click failed");
         }
-       
+
     }
- 
-    public void verifyProductCategories(ExtentTest test)
-    {
+
+    /*
+     * Method Name: verifyProductCategories
+     * Author Name: Sharmila Abdul
+     * Description: Verifies the text of the "Product Categories" section.
+     * Return type: void
+     * Param List: ExtentTest test - The ExtentTest instance for logging.
+     */
+    public void verifyProductCategories(ExtentTest test) {
         try {
-            Assertion.verifyPartialText(CambioLocators.productCategories, "Product categories");
-            LoggerHandler.logInfo("Verified Product Categories");
+            assertion.verifyPartialText(CambioLocators.productCategories, "Product categories");
+            Screenshot.takeScreenshot("Verify Product Categories");
+            loggerHandler.logInfo("Verified Product Categories");
             test.info("Verified Product Categories");
-            test.log(Status.PASS,"Verified Product Categories");
+            test.log(Status.PASS, "Verified Product Categories");
         } catch (Exception e) {
-            LoggerHandler.logError("Product categories verification failed");
-            test.log(Status.FAIL,"Product categories verification failed");
+            Reporter.addScreenshot("Product Categories verification failed", test, "Product Categories verification Failed", driver);
+            loggerHandler.logError("Product categories verification failed");
+            test.info("Product Categories verification failed");
+            test.log(Status.FAIL, "Product categories verification failed");
         }
     }
- 
-    public void verifyBestSellingBicycle(ExtentTest test)
-    {
+
+    /*
+     * Method Name: verifyBestSellingBicycle
+     * Author Name: Sharmila Abdul
+     * Description: Verifies the text of the "Best Selling Bicycle" section.
+     * Return type: void
+     * Param List: ExtentTest test - The ExtentTest instance for logging.
+     */
+    public void verifyBestSellingBicycle(ExtentTest test) {
         try {
-            Assertion.verifyText(CambioLocators.best,"Best Selling Bicycle");
-            LoggerHandler.logInfo("Verified Best Sellling Bicycle");
+            assertion.verifyText(CambioLocators.best, "Best Selling Bicycle");
+            Screenshot.takeScreenshot("Verify Best Selling Bicycle");
+            loggerHandler.logInfo("Verified Best Sellling Bicycle");
             test.info("Verified Best Selling Bicycle");
-            test.log(Status.PASS,"Verified Best Selling Bicycle");
+            test.log(Status.PASS, "Verified Best Selling Bicycle");
         } catch (Exception e) {
-            LoggerHandler.logError("Best Selling Bicycle verification failed");
-            test.log(Status.FAIL,"Best Selling Bicycle verification failed");
+            Reporter.addScreenshot("Best Selling Bicycle verification failed", test, "Best Selling Bicycle verification Failed", driver);
+            loggerHandler.logError("Best Selling Bicycle verification failed");
+            test.info("Best Selling Bicycle verification failed");
+            test.log(Status.FAIL, "Best Selling Bicycle verification failed");
         }
     }
- 
-    public void clickOn26T(ExtentTest test)
-    {
+
+    /*
+     * Method Name: clickOn26T
+     * Author Name: Sharmila Abdul
+     * Description: Clicks on the "26T" option and takes a screenshot.
+     * Return type: void
+     * Param List: ExtentTest test - The ExtentTest instance for logging.
+     */
+    public void clickOn26T(ExtentTest test) {
         try {
             helper.hoverOverElement(CambioLocators.size);
             helper.clickOnElement(CambioLocators.size);
             Screenshot.takeScreenshot("Clicked on 26T");
-            LoggerHandler.logInfo("Clicked on 26T");
+            loggerHandler.logInfo("Clicked on 26T");
             test.info("Clicked on 26T");
-            test.log(Status.PASS,"Clicked on 26T");
+            test.log(Status.PASS, "Clicked on 26T");
         } catch (Exception e) {
-            Reporter.addScreenshot("Click on 26T", test, "Click on 26T Failed",driver);
-            LoggerHandler.logError("Click on 26T failed");
-            test.log(Status.FAIL,"Click on 26T failed");
+            Reporter.addScreenshot("Click on 26T", test, "Click on 26T Failed", driver);
+            loggerHandler.logError("Click on 26T failed");
+            test.info("Click on 26T failed");
+            test.log(Status.FAIL, "Click on 26T failed");
         }
-       
+
     }
-    public void hoverOverFirstProduct(ExtentTest test)
-    {
+
+    /*
+     * Method Name: hoverOverFirstProduct
+     * Author Name: Sharmila Abdul
+     * Description: Hovers over the first product and takes a screenshot.
+     * Return type: void
+     * Param List: ExtentTest test - The ExtentTest instance for logging.
+     */
+    public void hoverOverFirstProduct(ExtentTest test) {
         try {
             helper.hoverOverElement(CambioLocators.firstProduct);
             Screenshot.takeScreenshot("Clicked on First Product");
-            LoggerHandler.logInfo("Clicked on First Product");
+            loggerHandler.logInfo("Clicked on First Product");
             test.info("Clicked on First Product");
-            test.log(Status.PASS,"Clicked on First Product");
+            test.log(Status.PASS, "Clicked on First Product");
         } catch (Exception e) {
-            Reporter.addScreenshot("Click on First Product", test, "Click on First Product failed",driver);
-            LoggerHandler.logError("Click on First Product failed");
-            test.log(Status.FAIL,"Click on First Product failed");
+            Reporter.addScreenshot("Click on First Product", test, "Click on First Product failed", driver);
+            loggerHandler.logError("Click on First Product failed");
+            test.info("Click on First Product failed");
+            test.log(Status.FAIL, "Click on First Product failed");
         }
-       
+
     }
-    public void clickOnSelectOptions(ExtentTest test)
-    {
+
+    /*
+     * Method Name: clickOnSelectOptions
+     * Author Name: Sharmila Abdul
+     * Description: Clicks on the "Select Options" button and takes a screenshot.
+     * Return type: void
+     * Param List: ExtentTest test - The ExtentTest instance for logging.
+     */
+    public void clickOnSelectOptions(ExtentTest test) {
         try {
             helper.hoverOverElement(CambioLocators.selectOptions);
             helper.clickOnElement(CambioLocators.selectOptions);
             Screenshot.takeScreenshot("Clicked on Select Options");
-            LoggerHandler.logInfo("Clicked on Select Options");
+            loggerHandler.logInfo("Clicked on Select Options");
             test.info("Clicked on Select Options");
-            test.log(Status.PASS,"Clicked on Select Options");
+            test.log(Status.PASS, "Clicked on Select Options");
         } catch (Exception e) {
-            Reporter.addScreenshot("Click on Select Options", test, "Click on Select Options failed",driver);
-            LoggerHandler.logError("Click on Select Options failed");
-            test.log(Status.FAIL,"Click on Select Options failed");
+            Reporter.addScreenshot("Click on Select Options", test, "Click on Select Options failed", driver);
+            loggerHandler.logError("Click on Select Options failed");
+            test.info("Click on select options failed");
+            test.log(Status.FAIL, "Click on Select Options failed");
         }
-       
+
     }
-   
-    public void verifyTitle26T(ExtentTest test)
-    {
+
+    /*
+     * Method Name: verifyTitle26T
+     * Author Name: Sharmila Abdul
+     * Description: Verifies the title contains "26T".
+     * Return type: void
+     * Param List: ExtentTest test - The ExtentTest instance for logging.
+     */
+    public void verifyTitle26T(ExtentTest test) {
         try {
-            Assertion.verifyPartialText(CambioLocators.verify26T, "26T");
-            LoggerHandler.logInfo("Verified 26T Title");
+            assertion.verifyPartialText(CambioLocators.verify26T, "26T");
+            Screenshot.takeScreenshot("Verify Title 26T");
+            loggerHandler.logInfo("Verified 26T Title");
             test.info("Verified 26T Title");
-            test.log(Status.PASS,"Verified 26T Title");
+            test.log(Status.PASS, "Verified 26T Title");
         } catch (Exception e) {
-            LoggerHandler.logError("26T Title verification failed");
-            test.log(Status.FAIL,"26T Title verification failed");
+            Reporter.addScreenshot("26T verification failed", test, "26T verification Failed", driver);
+            loggerHandler.logError("26T Title verification failed");
+            test.info("26T Title verification failed");
+            test.log(Status.FAIL, "26T Title verification failed");
         }
-       
+
     }
-    public void clickOnAddToCart(ExtentTest test)
-    {
+
+    /*
+     * Method Name: clickOnAddToCart
+     * Author Name: Sharmila Abdul
+     * Description: Clicks on the "Add to Cart" button and takes a screenshot.
+     * Return type: void
+     * Param List: ExtentTest test - The ExtentTest instance for logging.
+     */
+    public void clickOnAddToCart(ExtentTest test) {
         try {
             helper.hoverOverElement(CambioLocators.addtocart);
             Screenshot.takeScreenshot("Clicked on Add to Cart");
             helper.clickOnElement(CambioLocators.addtocart);
-            LoggerHandler.logInfo("Clicked on Add to Cart");
+            loggerHandler.logInfo("Clicked on Add to Cart");
             test.info("Clicked on Add to Cart");
-            test.log(Status.PASS,"Clicked on Add to Cart");
+            test.log(Status.PASS, "Clicked on Add to Cart");
         } catch (Exception e) {
-            Reporter.addScreenshot("Click on Add to Cart", test, "Click on Add to Cart failed",driver);
-            LoggerHandler.logError("Click on Add to Cart failed");
-            test.log(Status.FAIL,"Click on Add to Cart failed");
+            Reporter.addScreenshot("Click on Add to Cart", test, "Click on Add to Cart failed", driver);
+            loggerHandler.logError("Click on Add to Cart failed");
+            test.info("Click on Add to cart failed");
+            test.log(Status.FAIL, "Click on Add to Cart failed");
         }
-       
+
     }
-    public void clickOnViewCart(ExtentTest test)
-    {
+
+    /*
+     * Method Name: clickOnViewCart
+     * Author Name: Sharmila Abdul
+     * Description: Clicks on the "View Cart" button and takes a screenshot.
+     * Return type: void
+     * Param List: ExtentTest test - The ExtentTest instance for logging.
+     */
+    public void clickOnViewCart(ExtentTest test) {
         try {
             helper.hoverOverElement(CambioLocators.viewCart);
             helper.clickOnElement(CambioLocators.viewCart);
             Screenshot.takeScreenshot("Clicked on View Cart");
-            LoggerHandler.logInfo("Clicked on View Cart");
+            loggerHandler.logInfo("Clicked on View Cart");
             test.info("Clicked on View Cart");
-            test.log(Status.PASS,"Clicked on View Cart");
+            test.log(Status.PASS, "Clicked on View Cart");
         } catch (Exception e) {
-            Reporter.addScreenshot("Click on View Cart", test, "Click on View Cart failed",driver);
-            LoggerHandler.logError("Click on View Cart failed");
-            test.log(Status.FAIL,"Click on View Cart failed");
+            Reporter.addScreenshot("Click on View Cart", test, "Click on View Cart failed", driver);
+            loggerHandler.logError("Click on View Cart failed");
+            test.info("Click on View Cart Failed");
+            test.log(Status.FAIL, "Click on View Cart failed");
         }
     }
-    public void verifyCartTotals(ExtentTest test)
-    {
+
+    /*
+     * Method Name: verifyCartTotals
+     * Author Name: Sharmila Abdul
+     * Description: Verifies the text of the "Cart Totals" section.
+     * Return type: void
+     * Param List: ExtentTest test - The ExtentTest instance for logging.
+     */
+    public void verifyCartTotals(ExtentTest test) {
         try {
-            Assertion.verifyText(CambioLocators.cartTotals, "CART TOTALS");
-            LoggerHandler.logInfo("Verified CART TOTALS");
+            assertion.verifyText(CambioLocators.cartTotals, "CART TOTALS");
+            Screenshot.takeScreenshot("Cart Totals");
+            loggerHandler.logInfo("Verified CART TOTALS");
             test.info("Verified CART TOTALS");
-            test.log(Status.PASS,"Verified CART TOTALS");
+            test.log(Status.PASS, "Verified CART TOTALS");
         } catch (Exception e) {
-            LoggerHandler.logError("CART TOTALS verification failed");
-            test.log(Status.FAIL,"CART TOTALS verification failed");
+            Reporter.addScreenshot("Cart totals verification failed", test, "Cart Totals verification Failed", driver);
+            loggerHandler.logError("CART TOTALS verification failed");
+            test.info("Cart Totals Verification failed");
+            test.log(Status.FAIL, "CART TOTALS verification failed");
         }
-       
+
     }
-    public void verifyProceedCheckOut(ExtentTest test)
-    {
+
+    /*
+     * Method Name: verifyProceedCheckOut
+     * Author Name: Sharmila Abdul
+     * Description: Verifies the text of the "Proceed to Checkout" button.
+     * Return type: void
+     * Param List: ExtentTest test - The ExtentTest instance for logging.
+     */
+    public void verifyProceedCheckOut(ExtentTest test) {
         try {
-            Assertion.verifyText(CambioLocators.proceedCheckOut, "PROCEED TO CHECKOUT");
+            assertion.verifyText(CambioLocators.proceedCheckOut, "PROCEED TO CHECKOUT");
             Screenshot.takeScreenshot("Cart");
-            LoggerHandler.logInfo("Verified Proceed to check out");
+            loggerHandler.logInfo("Verified Proceed to check out");
             test.info("Verified Proceed to check out");
-            test.log(Status.PASS,"Verified Proceed to check out");
+            test.log(Status.PASS, "Verified Proceed to check out");
         } catch (Exception e) {
-            LoggerHandler.logError("Proceed to cart verification failed");
-            test.log(Status.FAIL,"Proceed to cart verification failed");
+            loggerHandler.logError("Proceed to cart verification failed");
+            test.info("Proceed to cart verification failed");
+            test.log(Status.FAIL, "Proceed to cart verification failed");
         }
-       
+
     }
- 
-    public void verifyFixedDeposit(ExtentTest test)
-    {
+
+    /*
+     * Method Name: verifyFixedDeposit
+     * Author Name: Sharmila Abdul
+     * Description: Verifies the title contains "Non Cumulative Fixed Deposit".
+     * Return type: void
+     * Param List: ExtentTest test - The ExtentTest instance for logging.
+     */
+    public void verifyFixedDeposit(ExtentTest test) {
         try {
-            Assertion.verifyTitle("Non Cumulative Fixed Deposit,");
-            LoggerHandler.logInfo("Verified Non Cumulative Fixed Deposit");
+            assertion.verifyTitle("Non Cumulative Fixed Deposit,");
+            Screenshot.takeScreenshot("Fixed deposit");
+            loggerHandler.logInfo("Verified Non Cumulative Fixed Deposit");
             test.info("Verified Non Cumulative Fixed Deposit");
-            test.log(Status.PASS,"Verified Non Cumulative Fixed Deposit");
+            test.log(Status.PASS, "Verified Non Cumulative Fixed Deposit");
         } catch (AssertionError e) {
-            LoggerHandler.logError("Non Cumulative Fixed Deposit, not found in title");
-            test.log(Status.FAIL,"Non Cumulative Fixed Deposit, not found in title");
+            Reporter.addScreenshot("Fixed Deposit verification failed", test, "Fixed deposit verification Failed", driver);
+            loggerHandler.logError("Non Cumulative Fixed Deposit, not found in title");
+            test.info("Fixed deposit verification failed");
+            test.log(Status.FAIL, "Non Cumulative Fixed Deposit, not found in title");
         }
-       
+
     }
- 
-    public void testCase10(ExtentTest test)
-    {
+
+    /*
+     * Method Name: testCase10
+     * Author Name: Sharmila Abdul
+     * Description: Executes the complete test case for Cambio actions including
+     * navigation, verification, and interactions.
+     * Return type: void
+     * Param List: ExtentTest test - The ExtentTest instance for logging.
+     */
+    public void testCase10(ExtentTest test) {
         clickOnCambio(test);
         switchCambio(test);
         verifyUrl(test);
@@ -283,5 +423,5 @@ public class CambioActions {
         verifyProceedCheckOut(test);
         verifyFixedDeposit(test);
     }
- 
+
 }
